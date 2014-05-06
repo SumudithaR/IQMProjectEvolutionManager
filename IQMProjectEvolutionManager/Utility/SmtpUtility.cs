@@ -9,6 +9,7 @@
 
 namespace IQMProjectEvolutionManager.Utility
 {
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Net.Mail;
     using System.Text;
@@ -33,7 +34,7 @@ namespace IQMProjectEvolutionManager.Utility
         /// </param>
         public static void SendPasswordResetEmail(string email, string subject, string body)
         {
-            var message = new MailMessage(new MailAddress("mpka336@gmail.com", "IQM"), new MailAddress(email)) { Subject = subject, Body = body, IsBodyHtml = true};
+            var message = new MailMessage(new MailAddress(ConfigurationManager.AppSettings["SmtpFromAddress"], ConfigurationManager.AppSettings["SmptFromFriendlyName"]), new MailAddress(email)) { Subject = subject, Body = body, IsBodyHtml = true };
             var client = new SmtpClient { EnableSsl = true };
             client.Send(message);
         }

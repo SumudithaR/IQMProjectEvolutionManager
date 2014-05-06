@@ -15,11 +15,6 @@ namespace IQMProjectEvolutionManager.Core.Services.BaseServices
         where TDomain : IDomain
         where TDomainWrapper : IBaseViewModel<TDomain>
     {
-        protected DomainBaseService()
-        {
-
-        }
-
         public virtual TPagedSearchDomainWrapper Search(TPagedSearchDomainWrapper pagedSearchViewModel, int pageNumber, int pageSize)
         {
             throw new NotImplementedException();

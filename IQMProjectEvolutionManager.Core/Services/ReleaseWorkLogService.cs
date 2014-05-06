@@ -81,6 +81,7 @@ namespace IQMProjectEvolutionManager.Core.Services
                 currenReleaseWorkLog.HoursRemainingOnRelease = releaseWorkLog.HoursRemainingOnRelease;
                 currenReleaseWorkLog.HoursWorkedOnRelease = releaseWorkLog.HoursWorkedOnRelease;
                 currenReleaseWorkLog.HoursWorkedOnReleaseInLastWeek = releaseWorkLog.HoursWorkedOnReleaseInLastWeek;
+                currenReleaseWorkLog.Edited = DateTime.Now;
 
                 Repository.Save(currenReleaseWorkLog);
                 return true;
@@ -111,6 +112,32 @@ namespace IQMProjectEvolutionManager.Core.Services
             }
 
             return releaseWorkLogsToReturn;
+        }
+
+        /// <summary>
+        /// The get older by days.
+        /// </summary>
+        /// <param name="days">
+        /// The days.
+        /// </param>
+        /// <returns>
+        /// The <see cref="ICollection"/>.
+        /// </returns>
+        public ICollection<ReleaseWorkLog> GetOlderByDays(int days)
+        {
+            return
+                this.GetAll()
+                    .Where(rele => rele.Edited != null && (DateTime)rele.Edited <= DateTime.Now.AddDays(days))
+                    .ToList();
+        }
+
+        public void Delete(ICollection<ReleaseWorkLog> releaseWorkLogs)
+        {
+            foreach (var releaseWorkLog in releaseWorkLogs.Where(releaseWorkLog => releaseWorkLog != null))
+            {
+                releaseWorkLog.DeleteOn = DateTime.Now;
+                this.Repository.Remove(releaseWorkLog);
+            }
         }
     }
 }

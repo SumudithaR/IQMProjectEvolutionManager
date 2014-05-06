@@ -9,6 +9,8 @@
 
 namespace IQMProjectEvolutionManager.Core.Services
 {
+    using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     using IQM.Common.Interfaces;
@@ -88,6 +90,7 @@ namespace IQMProjectEvolutionManager.Core.Services
                 var currentReleaseType = GetByOnTimeId(releaseType.OnTimeId);
 
                 currentReleaseType.Name = releaseType.Name;
+                currentReleaseType.Edited = DateTime.Now;
 
                 Repository.Save(currentReleaseType);
             }
@@ -102,6 +105,38 @@ namespace IQMProjectEvolutionManager.Core.Services
             if (releaseTypeName.Equals(string.Empty)) return null;
             releaseTypeName = releaseTypeName.Trim();
             return GetAll().SingleOrDefault(rType => rType.Name.Equals(releaseTypeName));
+        }
+
+        /// <summary>
+        /// The get older by days.
+        /// </summary>
+        /// <param name="days">
+        /// The days.
+        /// </param>
+        /// <returns>
+        /// The <see cref="ICollection"/>.
+        /// </returns>
+        public ICollection<ReleaseType> GetOlderByDays(int days)
+        {
+            return
+                this.GetAll()
+                    .Where(rele => rele.Edited != null && (DateTime)rele.Edited <= DateTime.Now.AddDays(days))
+                    .ToList();
+        }
+
+        /// <summary>
+        /// The delete.
+        /// </summary>
+        /// <param name="releaseTypes">
+        /// The release types.
+        /// </param>
+        public void Delete(ICollection<ReleaseType> releaseTypes)
+        {
+            foreach (var releaseType in releaseTypes.Where(releaseType => releaseType != null))
+            {
+                releaseType.DeleteOn = DateTime.Now;
+                this.Repository.Remove(releaseType);
+            }
         }
     }
 }

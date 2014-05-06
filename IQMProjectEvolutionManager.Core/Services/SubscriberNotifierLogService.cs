@@ -64,6 +64,7 @@ namespace IQMProjectEvolutionManager.Core.Services
                     currentUserNotifierLog.Subject = userNotifierLog.Subject;
                     currentUserNotifierLog.RegisteredForId = userNotifierLog.RegisteredForId;
                     currentUserNotifierLog.TransactionId = userNotifierLog.TransactionId;
+                    currentUserNotifierLog.Edited = DateTime.Now;
 
                     Repository.Save(currentUserNotifierLog);
                 }
@@ -78,6 +79,7 @@ namespace IQMProjectEvolutionManager.Core.Services
         {
             if (userNotifierLog != null)
             {
+                userNotifierLog.DeleteOn = DateTime.Now;
                 Repository.Remove(userNotifierLog);
             }
         }

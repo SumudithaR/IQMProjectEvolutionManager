@@ -15,11 +15,6 @@ namespace IQMProjectEvolutionManager.Core.Services.BaseServices
         where TDomain : IOnTimeDomain
         where TDomainWrapper : IBaseViewModel<TDomain>
     {
-        protected OnTimeDomainBaseService()
-        {
-
-        }
-
         public bool InDatabase(TDomain domainObject)
         {
             if (domainObject != null)

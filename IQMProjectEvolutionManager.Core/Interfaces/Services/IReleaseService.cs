@@ -17,5 +17,15 @@ namespace IQMProjectEvolutionManager.Core.Interfaces.Services
         void InsertOrUpdate(Release release);
         ICollection<ReleaseDomainWrapper> GetReleases(ICollection<ReleaseProject> releaseProjects, bool onlyActive);
         ICollection<ReleaseDomainWrapper> GetReleases(ICollection<ReleaseProject> releaseProjects, Expression<Func<Release, bool>> filter, bool onlyActive);
+
+        ICollection<Release> GetOlderByDays(int days);
+
+        /// <summary>
+        /// The delete.
+        /// </summary>
+        /// <param name="releases">
+        /// The releases.
+        /// </param>
+        void Delete(ICollection<Release> releases);
     }
 }

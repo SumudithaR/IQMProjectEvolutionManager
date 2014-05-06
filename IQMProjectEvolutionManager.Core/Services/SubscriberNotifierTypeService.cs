@@ -57,6 +57,7 @@ namespace IQMProjectEvolutionManager.Core.Services
                     var currentUserNotifierType = GetAll().SingleOrDefault(uNType => uNType.SubscriberNotifierTypeId == userNotifierType.SubscriberNotifierTypeId);
 
                     currentUserNotifierType.Name = userNotifierType.Name;
+                    currentUserNotifierType.Edited = DateTime.Now;
 
                     Repository.Save(currentUserNotifierType);
                 }

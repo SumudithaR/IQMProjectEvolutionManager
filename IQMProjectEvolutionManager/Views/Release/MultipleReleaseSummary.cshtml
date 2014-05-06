@@ -3,7 +3,7 @@
 {
     <div id="release-project-status-panel-@(releaseDomainWrapper.Data.ReleaseId)-@(releaseDomainWrapper.AssociatedProjectId)" class="release-project-status-panel">
         <fieldset class="release-info">
-            <legend>@releaseDomainWrapper.Data.Name</legend>
+            <legend><img src="@Url.Content("~/Content/images/22x22/drive-harddisk.png")" alt="" style="height: 2em;"/> @releaseDomainWrapper.Data.Name</legend>
             <br />
             <div>
                 <label class="release-info-label">Due date: </label>@releaseDomainWrapper.Data.DueDate.ToShortDateString()
@@ -33,18 +33,18 @@
             </div>
 
             <div id="release-tabs-@releaseDomainWrapper.Data.ReleaseId-@(releaseDomainWrapper.AssociatedProjectId)" class="release-sub-tabs-panel">
-                <div class="accordion-wrapper">
-                    <div id="release-work-summary-@releaseDomainWrapper.Data.ReleaseId-@(releaseDomainWrapper.AssociatedProjectId)" class="release-staff-summary accordion">
-                        <h3>Staff Work Summary</h3>
+@*                <div class="accordion-wrapper">*@
+                    <div id="release-work-summary-@releaseDomainWrapper.Data.ReleaseId-@(releaseDomainWrapper.AssociatedProjectId)" class="release-notes accordion">
+                        <h3><img src="@Url.Content("~/Content/images/22x22/supervisor.png")" alt="" style="height: 2em;"/> Staff Work Summary</h3>
                         <div>
                             @Html.Action("MultipleReleaseSummaryStaffStatistics", "ReleaseWorkLog", new { releaseId = releaseDomainWrapper.Data.ReleaseId })
                         </div>
                     </div>
-                </div>
+@*                </div>*@
 
 
                 <div id="release-notes-@(releaseDomainWrapper.Data.ReleaseId)-@(releaseDomainWrapper.AssociatedProjectId)" class="release-notes accordion">
-                    <h3>Release Notes</h3>
+                    <h3><img src="@Url.Content("~/Content/images/22x22/comment.png")" alt="" style="height: 2em;"/> Release Notes</h3>
                     <div>
                         @if (!String.IsNullOrEmpty(releaseDomainWrapper.Data.ReleaseNotes))
                         {
@@ -82,11 +82,11 @@
                 collapsible: true,
                 heightStyle: "content",
                 active: false
-                //activate: function (event) {
-                //    alert(event);
-                //    drawChart();
-                //}
             });
+        });
+
+        $(window).on('resize', function () {
+            location.reload();
         });
     });
 

@@ -9,6 +9,7 @@
 
 namespace IQMProjectEvolutionManager.Core.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -86,6 +87,7 @@ namespace IQMProjectEvolutionManager.Core.Services
 
                 currentUser.IsCalendarSubscriber = user.IsCalendarSubscriber;
                 currentUser.IsSmsSubscriber = user.IsSmsSubscriber;
+                currentUser.Edited = DateTime.Now;
 
                 this.Repository.Save(currentUser);
             }

@@ -9,6 +9,7 @@
 
 namespace IQMProjectEvolutionManager.Core.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -93,6 +94,7 @@ namespace IQMProjectEvolutionManager.Core.Services
                 }
 
                 currentUserNotifier.AccessId = userNotifier.AccessId;
+                currentUserNotifier.Edited = DateTime.Now;
 
                 this.Repository.Save(currentUserNotifier);
             }
@@ -160,6 +162,7 @@ namespace IQMProjectEvolutionManager.Core.Services
         {
             if (userNotifier != null)
             {
+                userNotifier.DeleteOn = DateTime.Now;
                 Repository.Remove(userNotifier);
             }
         }

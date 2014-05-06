@@ -57,6 +57,7 @@ namespace IQMProjectEvolutionManager.Core.Services
                     var currentUserNotifierPurpose = GetAll().SingleOrDefault(uNPurp => uNPurp.SubscriberNotifierPurposeId == userNotifierPurpose.SubscriberNotifierPurposeId);
 
                     currentUserNotifierPurpose.Name = userNotifierPurpose.Name;
+                    currentUserNotifierPurpose.Edited = DateTime.Now;
 
                     Repository.Save(currentUserNotifierPurpose);
                 }

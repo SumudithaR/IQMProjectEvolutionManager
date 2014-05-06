@@ -3,11 +3,7 @@
 }
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
-
-<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
-<script src="~/Scripts/libraries/jquery/validate/jquery.validate.js"></script>
-<script src="~/Scripts/libraries/jquery/validate/jquery.validate.unobtrusive.js"></script>
+@*<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>*@
 
 <script type="text/javascript">
     google.load("visualization", "1", { packages: ["corechart"] });
@@ -24,21 +20,21 @@
             <legend id="user-settings-legend" class="main-legends">Settings</legend>
             <ul style="padding-right: 0.3em; margin-top: 1em;">
                 <li style="vertical-align: middle;">
-                    <a href="#user-password-settings">Password</a>
+                    <a href="#user-password-settings"><img src="@Url.Content("~/Content/images/22x22/inspector.png")" alt="" style="height: 2em;"/>Password</a>
                 </li>
                 <li style="vertical-align: middle;">
-                    <a href="#user-notification-settings">Notification</a>
+                    <a href="#user-notification-settings"><img src="@Url.Content("~/Content/images/22x22/mobile-device.png")" alt="" style="height: 2em;"/>Notification</a>
                 </li>
             </ul>
         </fieldset>
         <fieldset id="user-settings-details-fieldset" class="releases-fieldset">
             <legend id="user-settings-details-legend" class="main-legends">Details</legend>
-            <div id="user-password-settings" class="release-project-status-panel">
+            <div id="user-password-settings" class="user-settings-panel">
                 @{
                     Html.RenderAction("PasswordSettings");
                 }
             </div>
-            <div id="user-notification-settings" class="release-project-status-panel">
+            <div id="user-notification-settings" class="user-settings-panel">
                 @{
                     Html.RenderAction("NotificationSettings");
                 }

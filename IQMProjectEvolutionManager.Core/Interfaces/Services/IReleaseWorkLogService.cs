@@ -16,5 +16,24 @@ namespace IQMProjectEvolutionManager.Core.Interfaces.Services
         bool Update(ReleaseWorkLog releaseWorkLog);
         void Update(IList<ReleaseWorkLog> releaseWorkLogs, Release release);
         ICollection<ReleaseWorkLogDomainWrapper> GetByReleaseId(long releaseId);
+
+        /// <summary>
+        /// The get older by days.
+        /// </summary>
+        /// <param name="days">
+        /// The days.
+        /// </param>
+        /// <returns>
+        /// The <see cref="ICollection"/>.
+        /// </returns>
+        ICollection<ReleaseWorkLog> GetOlderByDays(int days);
+
+        /// <summary>
+        /// The delete.
+        /// </summary>
+        /// <param name="releaseWorkLogs">
+        /// The release work logs.
+        /// </param>
+        void Delete(ICollection<ReleaseWorkLog> releaseWorkLogs);
     }
 }

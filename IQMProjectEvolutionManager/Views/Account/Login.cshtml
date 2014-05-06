@@ -1,10 +1,11 @@
 ﻿@model LoginModel
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "Log In";
 }
 
 <hgroup class="title">
     <h1>@ViewBag.Title</h1>
+    <br />
 </hgroup>
 
 <section id="loginForm">
@@ -14,7 +15,7 @@
         @Html.ValidationSummary(true)
 
         <fieldset>
-            <legend>Log in Form</legend>
+            <legend>Log in details</legend>
             <ol>
                 <li>
                     @Html.LabelFor(m => m.UserName)
@@ -31,10 +32,9 @@
                     @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
                 </li>
             </ol>
-            <div>
-                <a href="@Url.Action("ForgotPassword")">I forgot my password.</a>
-            </div>
-            <input type="submit" value="Log in" />
+            <a id="forgot-password-link" href="@Url.Action("ForgotPassword")">I forgot my password.</a>
+            <br />
+            <input id="submit-button" type="submit" value="Log in" />
             <input id="register-user-button" type="button" value="Register" onclick="location.href='@Url.Action("Register")    '" />
         </fieldset>
     }

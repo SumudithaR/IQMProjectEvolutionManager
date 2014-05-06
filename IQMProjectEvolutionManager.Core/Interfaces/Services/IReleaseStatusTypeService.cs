@@ -14,5 +14,15 @@ namespace IQMProjectEvolutionManager.Core.Interfaces.Services
     {
         bool IsUpdated(ReleaseStatusType releaseStatusType);
         void InsertOrUpdate(ReleaseStatusType releaseStatusType);
+
+        ICollection<ReleaseStatusType> GetOlderByDays(int days);
+
+        /// <summary>
+        /// The delete.
+        /// </summary>
+        /// <param name="releaseStatusTypes">
+        /// The release status types.
+        /// </param>
+        void Delete(ICollection<ReleaseStatusType> releaseStatusTypes);
     }
 }

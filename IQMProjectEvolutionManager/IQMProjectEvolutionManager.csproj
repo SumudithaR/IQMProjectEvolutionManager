@@ -56,9 +56,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
     </Reference>
-    <Reference Include="FiftyOne.Foundation">
-      <HintPath>..\packages\51Degrees.mobi.2.1.19.4\lib\NET40\FiftyOne.Foundation.dll</HintPath>
-    </Reference>
     <Reference Include="FluentNHibernate, Version=1.4.1.1, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\FluentNHibernate-hazzik.1.4.1.1\lib\FluentNHibernate.dll</HintPath>
@@ -386,7 +383,6 @@
     <Content Include="Scripts\Core\dialog.js" />
     <Content Include="Scripts\Core\global.js" />
     <Content Include="Scripts\Core\System\ajax-utils.js" />
-    <Content Include="51Degrees.mobi.config" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
@@ -567,17 +563,6 @@
     <Content Include="Views\Account\NotificationSettings.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.android.cshtml" />
-    <Content Include="Views\Account\Login.android.cshtml" />
-    <Content Include="Views\Account\NotificationSettings.android.cshtml" />
-    <Content Include="Views\Account\PasswordSettings.android.cshtml" />
-    <Content Include="Views\Account\Register.android.cshtml" />
-    <Content Include="Views\Account\ResetPassword.android.cshtml" />
-    <Content Include="Views\Account\UserSettings.android.cshtml" />
-    <Content Include="Views\Project\Index.android.cshtml" />
-    <Content Include="Views\Release\MultipleReleaseSummary.android.cshtml" />
-    <Content Include="Views\ReleaseProject\ReleaseSummary.android.cshtml" />
-    <Content Include="Views\ReleaseWorkLog\MultipleReleaseSummaryStaffStatistics.android.cshtml" />
     <None Include="Web.Staging.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

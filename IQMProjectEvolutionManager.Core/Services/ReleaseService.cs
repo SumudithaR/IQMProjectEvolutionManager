@@ -106,6 +106,7 @@ namespace IQMProjectEvolutionManager.Core.Services
                 currentRelease.DueDate = release.DueDate;
                 currentRelease.IsActive = release.IsActive;
                 currentRelease.ParentReleaseId = release.ParentReleaseId;
+                currentRelease.Edited = DateTime.Now;
 
                 Repository.Save(currentRelease);
             }
@@ -164,6 +165,38 @@ namespace IQMProjectEvolutionManager.Core.Services
             }
 
             return releasesToReturn;
+        }
+
+        /// <summary>
+        /// The get older by modified date.
+        /// </summary>
+        /// <param name="days">
+        /// The days.
+        /// </param>
+        /// <returns>
+        /// The <see cref="ICollection"/>.
+        /// </returns>
+        public ICollection<Release> GetOlderByDays(int days)
+        {
+            return
+                this.GetAll()
+                    .Where(rele => rele.Edited != null && (DateTime)rele.Edited <= DateTime.Now.AddDays(days))
+                    .ToList();
+        }
+
+        /// <summary>
+        /// The delete.
+        /// </summary>
+        /// <param name="releases">
+        /// The releases.
+        /// </param>
+        public void Delete(ICollection<Release> releases)
+        {
+            foreach (var release in releases.Where(release => release != null))
+            {
+                release.DeleteOn = DateTime.Now;
+                this.Repository.Remove(release);
+            }
         }
     }
 }

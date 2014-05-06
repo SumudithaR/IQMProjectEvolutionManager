@@ -54,5 +54,24 @@ namespace IQMProjectEvolutionManager.Core.Interfaces.Services
         /// The <see cref="ReleaseType"/>.
         /// </returns>
         ReleaseType GetByName(string releaseTypeName);
+
+        /// <summary>
+        /// The get older by days.
+        /// </summary>
+        /// <param name="days">
+        /// The days.
+        /// </param>
+        /// <returns>
+        /// The <see cref="ICollection"/>.
+        /// </returns>
+        ICollection<ReleaseType> GetOlderByDays(int days);
+
+        /// <summary>
+        /// The delete.
+        /// </summary>
+        /// <param name="releaseTypes">
+        /// The release types.
+        /// </param>
+        void Delete(ICollection<ReleaseType> releaseTypes);
     }
 }

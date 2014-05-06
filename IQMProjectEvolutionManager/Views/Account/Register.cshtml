@@ -5,7 +5,7 @@
 
 <hgroup class="title">
     <h1>@ViewBag.Title</h1>
-    <h2>Create a new account</h2>
+    <h2>Create a new account.</h2>
 </hgroup>
 
 @using (Html.BeginForm())
@@ -14,7 +14,7 @@
     @Html.ValidationSummary()
 
     <fieldset>
-        <legend>Registration Form</legend>
+        <legend>Registration details</legend>
         <ol>
             <li>
                 @Html.LabelFor(m => m.UserName)
@@ -49,8 +49,8 @@
                 @Html.CheckBoxFor(m => m.CalendarSubscriber)
             </li>
         </ol>
-        <input type="submit" value="Register" />
-        <input id="back-to-login-user-button" type="button" value="Back to login" onclick="location.href='@Url.Action("Login")    '" style="float: right;" />
+        <input id="submit-button" type="submit" value="Register" />
+        <input id="back-to-login-user-button" type="button" value="Back to login" onclick="location.href='@Url.Action("Login")'" style="float: right;" />
     </fieldset>
 }
 

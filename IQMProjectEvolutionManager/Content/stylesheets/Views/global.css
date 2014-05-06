@@ -1,19 +1,25 @@
 ﻿.projects-fieldset {
     display: inline-block;
-    vertical-align:middle;
-    margin-left:0.5em;
+    vertical-align: middle;
+    margin-left: 0.5em;
 }
 
 .releases-fieldset {
+    float: right;
     display: inline-block;
-    vertical-align:top;
-    margin-left:0.3em;
-    width:75.5%;
+    vertical-align: top;
+    margin-right: 0.5em;
+    width: 66.5%;
 }
 
-.main-legends{
-    /*font-weight:lighter;
-    font-size: 1.10em;*/
+.user-settings-panel {
+    float: left;
+    margin-right: 5em;
+}
+
+.releases-panel {
+    margin-right: 6em;
+    padding-right: 1.5em;
 }
 
 #multiple-project-content-div {
@@ -22,8 +28,8 @@
 }
 
 .release-tabs {
-    height:auto;
-    margin-top:1.5em;
+    height: auto;
+    margin-top: 1.5em;
 }
 
 .tab-sub-item {
@@ -31,10 +37,20 @@
     float: right;
 }
 
+.settings-panel {
+    border: lightgrey 1px solid;
+    padding: 1.3em;
+    background-image: -webkit-gradient( linear, left top, right bottom, color-stop(0, #FFFFFF), color-stop(1, #EDEDED) );
+    background-image: -o-linear-gradient(right bottom, #FFFFFF 0%, #EDEDED 100%);
+    background-image: -moz-linear-gradient(right bottom, #FFFFFF 0%, #EDEDED 100%);
+    background-image: -webkit-linear-gradient(right bottom, #FFFFFF 0%, #EDEDED 100%);
+    background-image: -ms-linear-gradient(right bottom, #FFFFFF 0%, #EDEDED 100%);
+    background-image: linear-gradient(to right bottom, #FFFFFF 0%, #EDEDED 100%);
+}
+
 .release-project-status-panel {
     display: inline-block;
-    vertical-align:middle;
-    width:60%;
+    width: 100%;
     margin: 0 0.5em 1.25em;
     background-image: -webkit-gradient( linear, left top, right bottom, color-stop(0, #FFFFFF), color-stop(1, #EDEDED) );
     background-image: -o-linear-gradient(right bottom, #FFFFFF 0%, #EDEDED 100%);
@@ -43,7 +59,7 @@
     background-image: -ms-linear-gradient(right bottom, #FFFFFF 0%, #EDEDED 100%);
     background-image: linear-gradient(to right bottom, #FFFFFF 0%, #EDEDED 100%);
     border: 0.2em solid lightgrey;
-    overflow:auto;
+    overflow: auto;
 }
 
 .release-completion-progressbar {
@@ -67,11 +83,11 @@
 }
 
 .release-hours-chart {
-    width:90%;
+    width: 90%;
 }
 
 .hours-chart {
-        width:80%;
+    width: 90%;
 }
 
 .release-status-good {
@@ -155,7 +171,7 @@
 }
 
 .accordion {
-    overflow:auto;
+    overflow: auto;
 }
 
 .release-info-label {
@@ -169,4 +185,23 @@
 
 #register-user-button {
     float: right;
+}
+
+#submit-button {
+    padding-left: 2em;
+    background: url("/Content/images/22x22/tick.png") no-repeat;
+}
+
+#register-user-button {
+    padding-left: 2em;
+    background: url("/Content/images/22x22/badge.png") no-repeat;
+}
+
+#back-to-login-user-button {
+    padding-left: 2em;
+    background: url("/Content/images/22x22/prev.png") no-repeat;
+}
+
+#forgot-password-link {
+    padding-left: 3.5em;
 }

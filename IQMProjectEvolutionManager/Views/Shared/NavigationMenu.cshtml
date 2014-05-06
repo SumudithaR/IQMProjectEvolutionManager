@@ -9,10 +9,10 @@
             if (User.Identity.IsAuthenticated)
             {
             <li class="user-settings-nav-item">
-                <a href="@Url.Action("UserSettings", "Account")" class="user-settings-nav-item-link" style="text-decoration: none;">User Settings</a>
+                <a href="@Url.Action("UserSettings", "Account")" class="user-settings-nav-item-link" style="text-decoration: none;"><img src="@Url.Content("~/Content/images/22x22/preferences-desktop.png")" alt="" style="height: 2em;"/>User Settings</a>
             </li>
             <li class="user-settings-nav-item">
-                <a href="@Url.Action("LogOff", "Account")" class="user-settings-nav-item-link" style="text-decoration: none;">Sign out</a>
+                <a href="@Url.Action("LogOff", "Account")" class="user-settings-nav-item-link" style="text-decoration: none;"><img src="@Url.Content("~/Content/images/22x22/warning.png")" alt="" style="height: 2em;"/>Sign out</a>
             </li>
             }
         }

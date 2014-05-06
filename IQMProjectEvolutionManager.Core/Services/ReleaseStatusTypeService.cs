@@ -72,12 +72,45 @@ namespace IQMProjectEvolutionManager.Core.Services
 
                 currentReleaseStatusType.Name = releaseStatusType.Name;
                 currentReleaseStatusType.ReleaseTypeId = releaseStatusType.ReleaseTypeId;
+                currentReleaseStatusType.Edited = DateTime.Now;
 
                 Repository.Save(currentReleaseStatusType);
             }
             else
             {
                 Repository.Save(releaseStatusType);
+            }
+        }
+
+        /// <summary>
+        /// The get older by days.
+        /// </summary>
+        /// <param name="days">
+        /// The days.
+        /// </param>
+        /// <returns>
+        /// The <see cref="ICollection"/>.
+        /// </returns>
+        public ICollection<ReleaseStatusType> GetOlderByDays(int days)
+        {
+            return
+                this.GetAll()
+                    .Where(rele => rele.Edited != null && (DateTime)rele.Edited <= DateTime.Now.AddDays(days))
+                    .ToList();
+        }
+
+        /// <summary>
+        /// The delete.
+        /// </summary>
+        /// <param name="releaseSatusTypes">
+        /// The release satus types.
+        /// </param>
+        public void Delete(ICollection<ReleaseStatusType> releaseSatusTypes)
+        {
+            foreach (var releaseSatusType in releaseSatusTypes.Where(releaseSatusType => releaseSatusType != null))
+            {
+                releaseSatusType.DeleteOn = DateTime.Now;
+                this.Repository.Remove(releaseSatusType);
             }
         }
     }

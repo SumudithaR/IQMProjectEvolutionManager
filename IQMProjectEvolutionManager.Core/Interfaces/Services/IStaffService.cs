@@ -14,5 +14,24 @@ namespace IQMProjectEvolutionManager.Core.Interfaces.Services
     {
         bool IsUpdated(Staff staff);
         void InsertOrUpdate(Staff staff);
+
+        /// <summary>
+        /// The get older by days.
+        /// </summary>
+        /// <param name="days">
+        /// The days.
+        /// </param>
+        /// <returns>
+        /// The <see cref="ICollection"/>.
+        /// </returns>
+        ICollection<Staff> GetOlderByDays(int days);
+
+        /// <summary>
+        /// The delete.
+        /// </summary>
+        /// <param name="staffMembers">
+        /// The staff members.
+        /// </param>
+        void Delete(ICollection<Staff> staffMembers);
     }
 }

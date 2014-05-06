@@ -11,11 +11,10 @@ namespace IQMProjectEvolutionManager.Controllers
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
     using System.Text.RegularExpressions;
     using System.Web.Mvc;
     using System.Web.Security;
-
-    using FiftyOne.Foundation.UI.Web;
 
     using FluentNHibernate;
 
@@ -176,7 +175,7 @@ namespace IQMProjectEvolutionManager.Controllers
             }
             catch (Exception ex)
             {
-                this.ViewData.Add("Message", "Error occurred while sending the password reset email to the user. Please try again." + ex.Message);
+                this.ViewData.Add("Message", "Error occurred while sending the password reset email to the user. Please try again.");
             }
 
             this.ModelState.Clear();
@@ -266,7 +265,7 @@ namespace IQMProjectEvolutionManager.Controllers
             {
                 Membership.UpdateUser(currentUser);
                 this.ModelState.Clear();
-                return this.PartialView(new PasswordSettingsModel());
+                return this.PartialView(model);
             }
 
             this.ModelState.AddModelError(string.Empty, "Sorry, the new password did not save successfully. This could be due to an invalid old password. Please try again.");
@@ -280,25 +279,24 @@ namespace IQMProjectEvolutionManager.Controllers
         /// <returns> Action Result </returns>
         public ActionResult NotificationSettings()
         {
-            //var subscription =
-            //    DependencyResolver.Current.GetService<ISubscriberService>().GetByUserName(User.Identity.Name);
-            //var currentUser = Membership.GetUser(User.Identity.Name);
+            var subscription = DependencyResolver.Current.GetService<ISubscriberService>().GetByUserName(User.Identity.Name);
+            var currentUser = Membership.GetUser(User.Identity.Name);
 
-            //if (currentUser == null)
-            //{
-            //    return this.PartialView(new NotificationSettingsModel());
-            //}
+            if (currentUser == null)
+            {
+                return this.PartialView(new NotificationSettingsModel());
+            }
 
-            //var model = new NotificationSettingsModel
-            //                {
-            //                    CalendarSubscriber = subscription.IsCalendarSubscriber,
-            //                    SmsSubscriber = subscription.IsSmsSubscriber,
-            //                    Email = currentUser.Email,
-            //                    Mobile = subscription.Mobile,
-            //                    SmsNotificationPeriod = subscription.SmsNotificationPeriod
-            //                };
+            var model = new NotificationSettingsModel
+                            {
+                                CalendarSubscriber = subscription.IsCalendarSubscriber,
+                                SmsSubscriber = subscription.IsSmsSubscriber,
+                                Email = currentUser.Email,
+                                Mobile = subscription.Mobile,
+                                SmsNotificationPeriod = subscription.SmsNotificationPeriod
+                            };
 
-            return this.PartialView(new NotificationSettingsModel());
+            return this.PartialView(model);
         }
 
         /// <summary>
@@ -309,6 +307,14 @@ namespace IQMProjectEvolutionManager.Controllers
         [HttpPost]
         public ActionResult NotificationSettings(NotificationSettingsModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return this.PartialView(model);
+            }
+
+            this.ValidateEmailNotificationDetails(model.Email, model.CalendarSubscriber);
+            this.ValidateSmsNotificationDetails(model.Mobile, model.SmsNotificationPeriod, model.SmsSubscriber);
+
             if (!ModelState.IsValid)
             {
                 return this.PartialView(model);
@@ -333,7 +339,7 @@ namespace IQMProjectEvolutionManager.Controllers
             Membership.UpdateUser(currentUser);
 
             this.ModelState.Clear();
-            return this.PartialView(new NotificationSettingsModel());
+            return this.PartialView(model);
         }
 
         /// <summary>
@@ -411,7 +417,7 @@ namespace IQMProjectEvolutionManager.Controllers
         /// </param>
         public void UpdateSubscription(NotificationSettingsModel model)
         {
-            if (model != null)
+            if (model == null)
             {
                 return;
             }
@@ -424,6 +430,7 @@ namespace IQMProjectEvolutionManager.Controllers
                 this.ModelState.AddModelError(
                     string.Empty,
                     "Sorry, the system failed to find the subscription for the logged in user. Please try again after signing out and logging back in.");
+                return;
             }
 
             currentSubscriber.Mobile = model.Mobile;

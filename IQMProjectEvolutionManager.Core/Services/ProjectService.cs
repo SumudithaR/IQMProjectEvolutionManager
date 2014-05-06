@@ -10,6 +10,10 @@ using System.Linq;
 
 namespace IQMProjectEvolutionManager.Core.Services
 {
+    using System;
+
+    using Microsoft.Win32;
+
     public class ProjectService : OnTimeDomainBaseService<Project, ProjectDomainWrapper, ProjectPagedSearchDomainWrapper>, IProjectService
     {
 
@@ -61,22 +65,66 @@ namespace IQMProjectEvolutionManager.Core.Services
 
             currentProject.Name = project.Name;
             currentProject.IsActive = project.IsActive;
+            currentProject.Edited = DateTime.Now;
 
             Repository.Save(currentProject);
 
             return true;
         }
 
+        /// <summary>
+        /// The get projects.
+        /// </summary>
+        /// <param name="onlyActive">
+        /// The only active.
+        /// </param>
+        /// <returns>
+        /// The <see cref="ICollection"/>.
+        /// </returns>
         public ICollection<ProjectDomainWrapper> GetProjects(bool onlyActive)
         {
             var projects = (onlyActive) ? GetAll().Where(proj => proj.IsActive) : GetAll();
 
             return (from project in projects
-                let releasesByDueDate = project.ReleaseProjects.OrderBy(rele => rele.Release.DueDate)
-                select new ProjectDomainWrapper
-                {
-                    Data = project, NextActiveRelease = releasesByDueDate.Where(rProj => rProj.Release.IsActive).Select(rProj => rProj.Release).FirstOrDefault(), NextInActiveRelease = releasesByDueDate.Where(rProj => !rProj.Release.IsActive).Select(rProj => rProj.Release).FirstOrDefault()
-                }).ToList();
+                    let releasesByDueDate = project.ReleaseProjects.OrderBy(rele => rele.Release.DueDate)
+                    select new ProjectDomainWrapper
+                    {
+                        Data = project,
+                        NextActiveRelease = releasesByDueDate.Where(rProj => rProj.Release.IsActive).Select(rProj => rProj.Release).FirstOrDefault(),
+                        NextInActiveRelease = releasesByDueDate.Where(rProj => !rProj.Release.IsActive).Select(rProj => rProj.Release).FirstOrDefault()
+                    }).ToList();
+        }
+
+        /// <summary>
+        /// The get older by days.
+        /// </summary>
+        /// <param name="days">
+        /// The days.
+        /// </param>
+        /// <returns>
+        /// The <see cref="ICollection"/>.
+        /// </returns>
+        public ICollection<Project> GetOlderByDays(int days)
+        {
+            return
+                this.GetAll()
+                    .Where(rele => rele.Edited != null && (DateTime)rele.Edited <= DateTime.Now.AddDays(days))
+                    .ToList();
+        }
+
+        /// <summary>
+        /// The delete.
+        /// </summary>
+        /// <param name="projects">
+        /// The projects.
+        /// </param>
+        public void Delete(ICollection<Project> projects)
+        {
+            foreach (var project in projects.Where(project => project != null))
+            {
+                project.DeleteOn = DateTime.Now;
+                this.Repository.Remove(project);
+            }
         }
     }
 }

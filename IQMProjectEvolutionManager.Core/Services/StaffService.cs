@@ -73,12 +73,45 @@ namespace IQMProjectEvolutionManager.Core.Services
                 currentStaffMember.FirstName = staff.FirstName;
                 currentStaffMember.LastName = staff.LastName;
                 currentStaffMember.IsActive = staff.IsActive;
+                currentStaffMember.Edited = DateTime.Now;
 
                 Repository.Save(currentStaffMember);
             }
             else
             {
                 Repository.Save(staff);
+            }
+        }
+
+        /// <summary>
+        /// The get older by days.
+        /// </summary>
+        /// <param name="days">
+        /// The days.
+        /// </param>
+        /// <returns>
+        /// The <see cref="ICollection"/>.
+        /// </returns>
+        public ICollection<Staff> GetOlderByDays(int days)
+        {
+            return
+                this.GetAll()
+                    .Where(rele => rele.Edited != null && (DateTime)rele.Edited <= DateTime.Now.AddDays(days))
+                    .ToList();
+        }
+
+        /// <summary>
+        /// The delete.
+        /// </summary>
+        /// <param name="staffMembers">
+        /// The staff members.
+        /// </param>
+        public void Delete(ICollection<Staff> staffMembers)
+        {
+            foreach (var staffMember in staffMembers.Where(staffMember => staffMember != null))
+            {
+                staffMember.DeleteOn = DateTime.Now;
+                this.Repository.Remove(staffMember);
             }
         }
     }
