@@ -1,0 +1,2 @@
+﻿@model ICollection<IQMProjectEvolutionManager.Core.DomainWrappers.ReleaseProjectDomainWrapper>
+@Html.Action("MultipleReleaseSummary", "Release", new { releaseProjects = Model, onlyActive = true })

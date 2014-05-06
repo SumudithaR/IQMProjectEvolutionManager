@@ -1,0 +1,71 @@
+﻿.StepsComplete ul li, .PendingSteps ul li, .ImportStatusWarning, .ImportStatusInfo, .ImportStatusError, .ImportStatusFailure, .ImportStatusSuccess, .ImportStatusSearch
+{
+    padding: 5px 5px 5px 25px;
+    margin: 5px;
+    -moz-border-radius: 3px;
+    background-position: 3px 3px;
+}
+.PendingSteps ul li, .ImportStatusWarning
+{
+    background-repeat: no-repeat;
+    border: 1px solid #FFCC00;
+    background-color: #FFFF99;   
+}
+.ImportStatusWarning
+{
+    background-image: url('../Images/22x22/warning.png');
+}
+.StepsComplete ul li, .ImportStatusSuccess
+{
+    background-image: url('../Images/22x22/tick.png');
+    background-repeat: no-repeat;
+    border: solid 1px green;
+    background-color: #CCFFCC;
+}
+.ImportStatusError, .ImportStatusFailure
+{
+    background-image: url('../Images/22x22/cross.png');
+    background-repeat: no-repeat;
+    border: solid 1px red;
+    background-color: #FFCCCC;
+}
+.ImportStatusInfo
+{
+    background-image: url('../Images/22x22/information.png');
+    background-repeat: no-repeat;
+    border: solid 1px silver;
+}
+
+.ImportStatusSearch
+{
+    background-image: url('../Images/22x22/search.png');
+    background-repeat: no-repeat;
+    border: solid 1px silver;
+    display: block;
+}
+
+.ImportStatusWarning a, .ImportStatusSearch a
+{
+    font-size: .8em;
+}
+.ImportStatusSearch span
+{
+    float: left;
+}
+.ImportStatusSearch
+{
+    height: 2em;
+    vertical-align: text-bottom;
+    background-position: 0.5em 0.5em;
+    padding-left: 2.5em;
+}
+.ImportStatusSearch a
+{
+    float: right;
+    display: block;
+}
+
+.DocumentHandleList ul
+{
+    margin: 0;
+}

@@ -1,0 +1,438 @@
+﻿/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+html, body {
+    background-color: #e2e2e2;
+    height: 100%;
+}
+
+body {
+    font-size: 12px;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 1em;
+    color: #696969;
+}
+
+a:link {
+    color: #3465a4;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #3465a4;
+}
+
+a:hover {
+    color: #3465a4;
+    text-decoration: none;
+}
+
+a:active {
+    color: #3465a4;
+}
+
+p, ul {
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+
+header,
+footer,
+nav,
+section {
+    display: block;
+}
+
+img {
+    border-width: 0;
+}
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1.5em;
+    color: #000;
+}
+
+h1 {
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+h2 {
+    padding: 0 0 10px 0;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+h5, h6 {
+    font-size: 1em;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+}
+
+header, #header {
+    position: relative;
+    margin-bottom: 0px;
+    color: #000;
+    padding: 0;
+}
+
+    header h1, #header h1 {
+        font-weight: bold;
+        padding: 5px 0;
+        margin: 0;
+        color: #fff;
+        border: none;
+        line-height: 2em;
+        font-size: 32px !important;
+        text-shadow: 1px 1px 2px #111;
+    }
+
+#main {
+    position: relative;
+    padding: 10px 30px 15px 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    clear: both;
+    background-image: -webkit-gradient( linear, left top, right bottom, color-stop(0, #FFFFFF), color-stop(1, #EDEDED) );
+    background-image: -o-linear-gradient(right bottom, #FFFFFF 0%, #EDEDED 100%);
+    background-image: -moz-linear-gradient(right bottom, #FFFFFF 0%, #EDEDED 100%);
+    background-image: -webkit-linear-gradient(right bottom, #FFFFFF 0%, #EDEDED 100%);
+    background-image: -ms-linear-gradient(right bottom, #FFFFFF 0%, #EDEDED 100%);
+    background-image: linear-gradient(to right bottom, #FFFFFF 0%, #EDEDED 100%);
+}
+
+footer,
+#footer {
+    background-color: #fff;
+    color: #999;
+    /*padding: 10px 0;*/
+    margin-top: 10px;
+    padding: 0px;
+    text-align: center;
+    line-height: normal;
+    /*margin: 0 0 30px 0;*/
+    font-size: .9em;
+    border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    clear: left;
+}
+
+    footer p {
+        margin: 0;
+    }
+/* TAB MENU   
+----------------------------------------------------------*/
+ul#menu {
+    border-bottom: 1px #5C87B2 solid;
+    padding: 0 0 2px;
+    position: relative;
+    margin: 0;
+    text-align: right;
+}
+
+    ul#menu li {
+        display: inline;
+        list-style: none;
+    }
+
+        ul#menu li#greeting {
+            padding: 10px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            line-height: 2.8em;
+            color: #fff;
+        }
+
+        ul#menu li a {
+            padding: 10px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            line-height: 2.8em;
+            background-color: #e8eef4;
+            color: #034af3;
+            border-radius: 4px 4px 0 0;
+            -webkit-border-radius: 4px 4px 0 0;
+            -moz-border-radius: 4px 4px 0 0;
+        }
+
+            ul#menu li a:hover {
+                background-color: #fff;
+                text-decoration: none;
+            }
+
+            ul#menu li a:active {
+                background-color: #a6e2a6;
+                text-decoration: none;
+            }
+
+        ul#menu li.selected a {
+            background-color: #fff;
+            color: #000;
+        }
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+input[type="number"],
+input[type="date"],
+input[type="text"],
+input[type="password"] {
+    border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;
+    width: 200px;
+}
+
+select {
+    border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;
+}
+
+input[type="submit"] {
+    font-size: 1.2em;
+    padding: 5px;
+}
+
+/* TABLE
+----------------------------------------------------------*/
+
+table {
+    /*border: solid 1px #e8eef4;*/
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    table td {
+        padding: 10px;
+        /*border: solid 1px #e8eef4;*/
+    }
+
+    table th {
+        padding: 6px 5px;
+        text-align: left;
+        /*background-color: #e8eef4;*/
+        /*border: solid 1px #e8eef4;*/
+    }
+
+    table th, .header {
+        text-decoration: underline;
+    }
+
+tr:hover td, .ul-list-item:hover {
+    background-color: #E1E1E1;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+.clear {
+    clear: both;
+}
+
+.error {
+    color: Red;
+}
+
+.results-table-nav-pages a {
+    font-size: 2em;
+}
+
+nav,
+#menucontainer {
+    /*margin-top: 5px;*/
+}
+
+.NavigationMenu {
+    border-top-width: 0;
+}
+
+div#title {
+    display: block;
+    float: left;
+    text-align: left;
+}
+
+#logindisplay {
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    margin: 10px;
+    color: White;
+}
+
+    #logindisplay a:link {
+        color: white;
+        text-decoration: underline;
+    }
+
+    #logindisplay a:visited {
+        color: white;
+        text-decoration: underline;
+    }
+
+    #logindisplay a:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #ff0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.tri-state {
+    width: 6em;
+}
+
+.ul-list ul {
+    padding: 0;
+    margin: 0;
+}
+
+    .ul-list ul li, .pagination ul li {
+        display: inline-block;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+.pagination ul li {
+    padding: 4px;
+}
+
+.container, .imgcontainer, .content-menu ul, .toc {
+    background-color: white;
+    border: 1px solid #B3B3B3;
+    /*border-radius: 0.3em 0.3em 0.3em 0.3em;*/
+    box-shadow: 1px 1px 5px #B3B3B3 !important;
+}
+
+.ui-button-text {
+    color: #555555;
+}
+
+.loading-content {
+    background-image: url('/content/images/ajax-loader.gif');
+    background-position: right;
+    padding-right: 20px;
+    background-repeat: no-repeat;
+}
+
+.help-image {
+    text-align: center;
+}
+
+    .help-image img {
+        border: solid 1px red;
+    }
+
+#menu-bar {
+    background-color: white;
+    float: right;
+    position: absolute;
+    right: 10px;
+    top: 100px;
+    z-index: 999;
+    width: 300px;
+    padding: 5px;
+}
+
+#duty-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.changelog pre {
+    font-family: Verdana, Helvetica, Sans-Serif;
+}
+
+.tramlist {
+    width: 250px;
+}
+
+    .tramlist div {
+        margin: 3px;
+        padding: 3px;
+    }
+
+    .tramlist.notavailable div {
+        border: solid 1px red;
+        background-color: #FFCCCC;
+    }
+
+    .tramlist.available div {
+        border: solid 1px green;
+        background-color: #CCFFCC;
+    }
+
+.faultlist {
+    width: 500px;
+}
+
+    .faultlist div {
+        border: solid 1px silver;
+        margin: 5px;
+        padding: 5px;
+    }

@@ -1,0 +1,6 @@
+﻿@model ClientViewModel
+@Html.Partial("RowDetail", Model)
+@if (Model.Data != null)
+{
+    <td>@Html.ActionLink("Edit", "Edit", new { id = Model.Data.ClientId }, new { rel = "button" })</td>
+}

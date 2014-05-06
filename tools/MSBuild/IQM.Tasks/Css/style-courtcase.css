@@ -1,0 +1,29 @@
+﻿#tab-case-overview
+{
+    padding: 0;
+}
+
+#CourtCaseOverview
+{
+    display: inline-block;
+    width: 100%;
+}
+#CourtCaseOverview > div
+{
+    padding: 1px;
+    /*width: 45%;*/
+    /*float: left;*/
+    /*display: inline-block;*/
+    /*border: solid 1px silver;*/
+}
+
+.CourtCaseOverviewColumn
+{
+    float: left;
+    width: 33%;
+}
+
+div[rel=content] ul
+{
+    padding: 0px;
+}

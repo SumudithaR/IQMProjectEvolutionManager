@@ -1,0 +1,47 @@
+﻿#payments
+{
+    display: block;
+    padding:0;
+}
+.PaymentsRow 
+{
+    width: 100%;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+.PaymentsRow div
+{
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: text-top;
+}
+.PaymentsHeader div
+{
+    font-weight: bold;
+}
+
+.Payment-Name 
+{
+    width: 10em;
+}
+.Payment-Paid 
+{ 
+    width: 8em;
+}
+.Payment-Amount 
+{ 
+    width: 5em;
+}
+.Payment-PaymentType
+{ 
+    width: 8em;
+}
+.Payment-Notes 
+{
+    width: 4em;
+}
+.steps
+{
+    font-style: italic;
+}

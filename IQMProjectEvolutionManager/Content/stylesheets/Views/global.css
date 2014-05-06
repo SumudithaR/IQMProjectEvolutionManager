@@ -1,0 +1,172 @@
+﻿.projects-fieldset {
+    display: inline-block;
+    vertical-align:middle;
+    margin-left:0.5em;
+}
+
+.releases-fieldset {
+    display: inline-block;
+    vertical-align:top;
+    margin-left:0.3em;
+    width:75.5%;
+}
+
+.main-legends{
+    /*font-weight:lighter;
+    font-size: 1.10em;*/
+}
+
+#multiple-project-content-div {
+    margin-right: 0.5em;
+    margin-top: 1.5em;
+}
+
+.release-tabs {
+    height:auto;
+    margin-top:1.5em;
+}
+
+.tab-sub-item {
+    font-size: .6em;
+    float: right;
+}
+
+.release-project-status-panel {
+    display: inline-block;
+    vertical-align:middle;
+    width:60%;
+    margin: 0 0.5em 1.25em;
+    background-image: -webkit-gradient( linear, left top, right bottom, color-stop(0, #FFFFFF), color-stop(1, #EDEDED) );
+    background-image: -o-linear-gradient(right bottom, #FFFFFF 0%, #EDEDED 100%);
+    background-image: -moz-linear-gradient(right bottom, #FFFFFF 0%, #EDEDED 100%);
+    background-image: -webkit-linear-gradient(right bottom, #FFFFFF 0%, #EDEDED 100%);
+    background-image: -ms-linear-gradient(right bottom, #FFFFFF 0%, #EDEDED 100%);
+    background-image: linear-gradient(to right bottom, #FFFFFF 0%, #EDEDED 100%);
+    border: 0.2em solid lightgrey;
+    overflow:auto;
+}
+
+.release-completion-progressbar {
+    width: inherit;
+}
+
+.completion-progressbar {
+    position: relative;
+}
+
+.completion-progressbar-label {
+    position: absolute;
+    color: darkblue;
+    left: 48%;
+    top: 5%;
+    font-weight: bold;
+    -ms-text-shadow: 1px 1px 0 #fff;
+    text-shadow: 1px 1px 0 #fff;
+    margin: 0.5%;
+    text-align: center;
+}
+
+.release-hours-chart {
+    width:90%;
+}
+
+.hours-chart {
+        width:80%;
+}
+
+.release-status-good {
+    border: 1px solid green;
+}
+
+.release-status-bad {
+    border: 1px solid orange;
+}
+
+.release-status-ugly {
+    border: 1px solid red;
+}
+
+.release-sub-tabs-panel {
+    width: 100%;
+}
+
+.release-staff-summary {
+    display: inline-block;
+    width: inherit;
+    margin-top: 2%;
+}
+
+.release-notes {
+    display: inline-block;
+    width: inherit;
+    margin-top: 2%;
+}
+
+.staff-statistics-table {
+    color: black;
+    border-color: black;
+    font-size: .8em;
+}
+
+    .staff-statistics-table th {
+        text-decoration: none;
+        color: white;
+        background-color: black;
+    }
+
+.ui-tabs-vertical {
+    width: 100%;
+}
+
+    .ui-tabs-vertical .ui-tabs-nav {
+        padding: .2em .1em .2em .2em;
+        float: left;
+        width: 20em;
+    }
+
+        .ui-tabs-vertical .ui-tabs-nav li {
+            clear: left;
+            width: 100%;
+            border-bottom-width: 1px !important;
+            border-right-width: 0 !important;
+            margin: 0 -1px .2em 0;
+        }
+
+            .ui-tabs-vertical .ui-tabs-nav li a {
+                display: block;
+                float: left;
+            }
+
+            .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
+                padding-bottom: 0;
+                padding-right: .1em;
+                border-right-width: 1px;
+                border-right-width: 1px;
+            }
+
+    .ui-tabs-vertical .ui-tabs-panel {
+        padding: 1em;
+        float: right;
+        width: 75%;
+    }
+
+.accordion-wrapper {
+    width: 100%;
+}
+
+.accordion {
+    overflow:auto;
+}
+
+.release-info-label {
+    color: darkblue;
+    font-weight: bold;
+}
+
+.release-info {
+    border: 0;
+}
+
+#register-user-button {
+    float: right;
+}

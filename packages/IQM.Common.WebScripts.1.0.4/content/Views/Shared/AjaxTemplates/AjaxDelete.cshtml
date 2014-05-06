@@ -1,0 +1,32 @@
+﻿@model IQM.Common.Web.Interfaces.IAjaxViewModel
+@using (Ajax.BeginForm("AjaxDelete", Model.GetDomainObjectName(),
+    new { timestamp = DateTime.Now.Ticks, id = Model.GetDataId(), returnObjId = Model.GetDomainObjectName() },
+    new AjaxOptions
+    {
+        UpdateTargetId = "partialViewDialogData",
+        InsertionMode = InsertionMode.Replace,
+        OnBegin = "AjaxUtils.BeginRequest",
+        OnComplete = "AjaxUtils.EndRequest('" + @Model.GetDomainObjectName() + "', '" + @ViewData["returnObjId"] + "')",
+        OnFailure = "Global.AjaxFormError"
+    },
+    new { name = "Delete" + @Model.GetDomainObjectName() + "Form", id = "Delete" + @Model.GetDomainObjectName() + "Form" }
+    ))
+{
+    <div>
+        Are you sure you wish to delete this @Model.GetDomainObjectName()?
+    </div>
+    <table class="ajax-dialog-buttons-table">
+        <tr>
+            <td>
+                <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                        role="button" aria-disabled="false" rel="Cancel">
+                    <span class="ui-button-text">Cancel</span>
+                </button>
+                <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                        role="button" aria-disabled="false" rel="Save">
+                    <span class="ui-button-text">Continue</span>
+                </button>
+            </td>
+        </tr>
+    </table>
+}

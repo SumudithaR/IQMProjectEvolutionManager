@@ -1,0 +1,631 @@
+﻿.numeric-col, .numeric-col input[type=text]
+{
+    width: 2.5em;
+   padding: 0.5px;
+}
+.text-col
+{
+    font-size: inherit;
+    margin: 0px;
+}
+.normallongtext-col
+{
+    width: 7em;
+}
+.extralongtext-col
+{
+    width: 14em;
+    font-size: 0.8em;
+}
+.longtext-col
+{
+    width: 7em;
+    font-size: 0.8em;
+}
+.longtext-col select
+{
+    width: 7em;
+}
+.offencetext-col
+{
+    width: 20em;
+}
+.filename-col
+{
+    width: 60em;
+}
+.pfnnumber-col
+{
+    width: 10em;
+}
+
+.text-col, .text-col input[type=text]
+{
+    width: 2em;
+}
+.bool-col
+{
+    width: 22px;
+}
+.bool-col img, .detailRow img
+{
+    height: 16px;
+}
+.date-col
+{
+    margin: 0px;
+    padding: 0.5;
+}
+.date-col, .date-col input[type=text]
+{
+    width: 3.5em;
+}
+
+.label-col, .label-col input[type=text]
+{
+    width: 6em;
+}
+
+.mediumdate-col
+{
+    width: 10em;
+}
+
+.datetime-col
+{
+    width: 12em;
+}
+.ui-menu
+{
+    z-index: 1003;
+}
+
+/*Duty Dashboard Layout*/
+.PerformDutyDashboardItem table tr td
+{
+    vertical-align: top;
+    padding: .5em;
+}
+.PerformDutyDashboardItem table tr td ul a
+{
+    text-decoration: underline;
+    color: Blue;
+}
+.PerformDutyDashboardItem table tr td ul label
+{
+    width: 10em;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/*Tool bar layout*/
+.toolbar, .detail-toolbar 
+{
+    position: relative;
+    padding: .2em 0 0 .2em;
+    text-align: left;
+    width: 100%;
+    z-index: 1003;
+}
+
+.toolbar .ui-menu-item, .detail-toolbar .ui-menu-item
+{
+    width: 9.4em;
+    z-index: 1003;
+}
+
+.toolbar .ui-menu .ui-menu-item a
+{
+    margin-left: 22px;
+    height: 22px;
+    padding: 0;
+    z-index: 1003;
+    line-height: 2;
+}
+
+.toolbar ul li img, .detail-toolbar ul li img
+{
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    top: -.03em;
+    left: 8.3em;
+    border: none;
+}
+
+.toolbar a, .detail-toolbar a
+{
+    font-size: .8em;
+    width:11em;
+    z-index: 1003;
+}
+
+.toolbar input, .detail-toolbar input
+{
+    margin-top: -2.1em;
+    height: 2.1em;
+    z-index: 1003;
+}
+
+.toolbar .ui-button-text, .detail-toolbar .ui-button-text
+{
+    font-size: .6em;
+}
+
+.toolbar .inputErrors, .detail-toolbar .inputErrors
+{
+    list-style-image: url("../Images/22x22/urgent.png");
+    list-style-position: inside;
+    padding: 0 0 0 1em;
+    width: 20em;
+    z-index: 1003;
+    font-size: .7em;
+    font-weight: normal;
+    vertical-align: middle;
+}
+.validationErrors
+{
+    margin: 0px;
+    padding: 0px;
+}
+.validationErrors li a, .validationErrors li input
+{
+    float: right;
+}
+/*
+.toolbar .validationErrors, .detail-toolbar .validationErrors
+{
+    list-style-type:circle;
+    list-style-position: inside;
+    padding: 0 0 0 1em;
+    width: 20em;
+    z-index: 1003;
+    font-size: .7em;
+    font-weight: normal;
+}
+
+.toolbar .validationErrors li, .detail-toolbar .validationErrors li
+{
+    font-size: .6em;
+    font-weight: lighter;
+    margin-bottom: .2em;
+}
+
+#validation-errors-button
+{
+    width: 12em;
+}
+*/
+/*Performed Duty Tabs Layout*/
+#duty-tabs ul li a
+{
+    /*font-size: .8em;*/
+}
+
+/*General Performed Duty section layout*/
+#performedduty,
+#penaltyfares,
+#excesstickets
+{
+    padding: 1em;
+}
+
+#performedduty table thead tr th, #stationBlockWork table thead tr th
+{
+    text-align:right;
+    padding: 0em 2em 0em 2em;
+}
+#performedduty table thead tr th li, #stationBlockWork table thead tr th l
+{
+    text-align:left;
+}
+#performedduty table tbody tr td, #stationBlockWork table tbody tr td
+{
+    vertical-align: text-top;
+    text-align: right;
+    padding: 0em 2em 0em 2em;
+}
+#performedduty table tbody tr td p, #stationBlockWork table tbody tr td p
+{
+    vertical-align: text-top;
+}
+#performedduty table tbody tr td p label, #stationBlockWork table tbody tr td p label
+{
+    font-weight: bold;
+    width: auto;
+    margin-right: .5em;
+}
+
+#BarrierWorkItems
+{
+    padding:3px;
+}
+
+.DeleteConfirmation
+{
+    text-align: center;
+    font-weight: bold;
+}
+.duty_validation_errors
+{
+    position: relative;
+    font-size: .8em;
+    padding: .5em;
+    margin-bottom: .5em;
+    width: 55em;
+}
+
+.clonedDutyAction
+{
+    background-image: url( '/Content/Images/22x22/cloned.png');
+    background-repeat: no-repeat;
+}
+
+.deleteDutyAction
+{
+    background-image: url( '/Content/Images/22x22/bin.png');
+    background-repeat: no-repeat;
+}
+
+/*Penalty Fares Layout*/
+#PenaltyFares ul
+{
+    padding-left: 0px;
+}
+
+.PenaltyFares table tbody tr td, .ExcessTickets table tbody tr td
+{
+    vertical-align: top;
+}
+
+.PenaltyFares table tbody tr td div, .ExcessTickets table tbody tr td div
+{
+    padding: 0;
+    margin: 0;
+}
+
+.PenaltyFares div form, 
+.ExcessTickets div form
+{
+    margin: 0 0 .2em 0;
+}
+
+.PenaltyFares .ui-button, 
+.ExcessTickets .ui-button
+{
+    width: 5em;
+    height: 1.6em;
+}
+
+.PenaltyFares .date-col,
+.ExcessTickets .date-col
+{
+    width: 5em;
+}
+
+.PenaltyFares .date-col input,
+.ExcessTickets .date-col input
+{
+    width: 3.5em;
+}
+
+.PenaltyFares .text-col, .ExcessTickets .text-col
+{
+    width: 5em;
+}
+
+.PenaltyFares ul li, 
+.ExcessTickets ul li
+{
+    vertical-align: text-top;
+    font-size: .8em;
+}
+
+.validation-summary-errors ul
+{
+    margin: .4em;
+}
+
+.validation-summary-errors ul li,
+.BarrierTrainWork .validation-summary-errors ul li,
+.PenaltyFares .validation-summary-errors ul li,
+.ExcessTickets .validation-summary-errors ul li
+{
+    display: block;
+    padding: 0 0 0 22px;
+    /*font-size: .6em;*/
+}
+
+.DisplayRows ul li, .BarrierTrainWork ul li, .PenaltyFares ul li, .ExcessTickets ul li, .UnpaidFares ul li, .Offences ul li, .Courts ul li
+{
+    display: inline-block;
+}
+
+/*TrainBarrier Layout*/
+#TrainWorkItems
+{
+    margin: 0;
+    padding: 1em 0em 0em .3em;
+}
+
+/*-- header --*/
+.BarrierTrainWorkHeader, 
+.ExcessTicketsHeader, 
+.PenaltyFaresHeader
+{
+    font-weight: bold;
+}
+.BarrierTrainWork ul,
+.BarrierTrainWorkHeader ul
+{
+    padding: 0;
+    margin: 0;
+}
+/*-- edit/detail row --*/
+.EditRow .ui-button, 
+.detailRow .ui-button
+{
+    width: 5em;
+    height: 1.6em;
+}
+
+.BarrierTrainWorkHeader,
+.EditRow, 
+.detailRow
+{
+/*    margin: 0 0 .5em;*/
+}
+.detailRow .date-col, 
+.detailRow .numeric-col,
+.BarrierTrainWorkHeader .date-col,
+.BarrierTrainWorkHeader .numeric-col
+{
+    width: 3.2em;
+    padding: 1px;
+}
+.detailRow ul li, 
+.EditRow ul li,
+.BarrierTrainWorkHeader ul li,
+{
+    /*font-size: .7em;*/
+    padding: 0;
+    white-space:nowrap;
+    overflow: hidden;
+}
+.BarrierTrainWorkHeader th
+{
+    font-size: .8em;
+}
+
+
+.detailRow ul li, 
+.EditRow ul li
+{
+    margin: 0 -.4em 0 0;
+}
+
+.BarrierTrainWorkHeader ul li
+{
+    margin: 0 -.31em 0 0;
+    /*-moz-transform: rotate(270deg);*/
+    text-align: center;
+}
+
+.EditRow .date-col input, 
+.EditRow .text-col input, 
+.EditRow .numeric-col input
+{
+    width: 100%;
+    border: none;
+}
+
+.EditRow .date-col, 
+.EditRow .numeric-col
+{
+    width: 3.2em;
+}
+
+.EditRow .numeric-col .check-box
+{
+    padding: 0;
+    margin: .1em;
+}
+
+.EditRow .text-col
+{
+    width: 7em;
+}
+
+.EditRow .text-col,
+.EditRow .date-col, 
+.EditRow .numeric-col
+{
+    border: 1px solid silver;
+}
+ 
+.detailRow .text-col,
+.BarrierTrainWorkHeader .text-col
+{
+    width: 7em;
+    padding: 1px;
+}
+
+.BarrierTrainWork input
+{
+    font-size: inherit;
+}
+.BarrierTrainWork form
+{
+    display: inline;
+}
+#BarrierTrainWorkItems > ul label
+{
+    font-weight: bold;
+}
+
+/*Explicit Element Layout*/
+#Data_IssuedBadge_Badge_BadgeNo
+{
+    width: 11.3em;
+}
+
+#Data_Performed, 
+#Data_PaidInDate
+{
+    width: 9em;
+}
+
+#SelectWeekStart span
+{
+    font-weight: bold;
+}
+
+/*Search Layout*/
+SearchCriteria
+{
+    width: 98%;
+}
+
+.SearchCriteria tr td
+{
+    padding: .3em;
+    vertical-align: top;
+}
+
+.SearchCriteria p
+{
+    padding-bottom: 4px;
+}
+
+.SearchCriteria .display-text
+{
+    width: 20em;
+}
+
+.searchTabByDate
+{
+    padding: .5em;
+    /*width: 250px;*/
+}
+
+.searchTabByPeriod
+{
+    padding: .5em;
+    width: 250px;
+}
+
+.searchTabs
+{
+    width: 500px;
+    margin: .6em 0 0 0;
+}
+
+#generic-actions-validationerrors-button
+{
+    background: none;
+    background-color: Red;
+}
+.performedduty-summary-table
+{
+  border-collapse: collapse;
+  margin-bottom: 5px;
+}
+.performedduty-summary-table td, .performedduty-summary-table th
+{
+    border: solid silver 1px;
+    text-align: center;
+}
+
+.performedduty-loader
+{
+    height: 100px;
+    text-align:center;
+}
+.performedduty-loader img
+{
+    padding: 20px;
+}
+.performedduty-loader p
+{
+    font-weight: bold;
+}
+.performedduty-summary-part
+{
+    width: 49.5%;
+    display: inline-block;
+    vertical-align: top;
+}
+.performedduty-tasks
+{
+    width: 100%;
+    text-align: right;
+    padding-bottom: 5px;
+    vertical-align: top;
+}
+.performedduty-tasks a, .performedduty-tasks label, .performedduty-tasks img
+{
+    vertical-align: top;
+}
+.performedduty-tasks label
+{
+    font-weight: bold;
+}
+.performedduty-tasks table
+{
+    display: inline-block;
+}
+
+#workingPartners label
+{
+    display: inline-block;
+    width: 15em;
+}
+.contextmenu-dialog ul
+{
+    margin: 0px;
+    padding: 0px;
+}
+.contextmenu-dialog button
+{
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+}
+.BarrierTrainWorkSummary ul li ul /*, .BarrierTrainWork div > ul*/
+{
+    /*border: solid 1px silver;*/
+    margin: 0px;
+    padding: 0px;
+    border: solid 1px silver;
+}
+.BarrierTrainWorkSummary ul li ul li /*, .BarrierTrainWork div  ul > li*/
+{
+    border-left: solid 1px silver;
+    margin: 0px;
+    padding: 0px;
+    border-collapse: collapse;
+    /*height: 100%;*/
+}
+.BarrierTrainWorkSummary .detailRow, .BarrierTrainWorkSummary .Header
+{
+    margin: 0px;
+}
+.BarrierTrainWorkSummary .Header
+{
+    margin-top: 5px;
+    background-color: #E6E6E6;
+}
+.Header
+{
+    font-size: 1em;
+    /*font-weight: normal;*/
+}
+.Header li
+{
+    height: 3em;
+    vertical-align: text-top;
+}
+.Header li label
+{
+    height: 100%;
+}

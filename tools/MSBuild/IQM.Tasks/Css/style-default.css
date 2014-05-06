@@ -1,0 +1,285 @@
+﻿html, body, table, input, textarea, select
+{
+    /*font-size: 12px;*/
+}
+address, caption, code, dfn, h1, h2, h3, h4, h5, h6, th, var {
+    font-style:normal;
+    font-weight:normal;
+}
+th {
+    font-weight: bold;
+    text-align: left;
+}
+td {
+    vertical-align: top;
+}
+legend {
+    font-weight: bold;
+}
+th {
+    vertical-align: top;
+}
+h1{
+    font-family:sans-serif;
+    font-style:normal;
+}
+h2{
+    font-weight: bold;
+}
+p
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    vertical-align: text-bottom;
+}
+img
+{
+    border-width: 0px;
+}
+td ul {
+    margin: 0px;
+    padding: 0px;
+}
+ul li a
+{
+    text-decoration: none;
+}
+ul li a:hover
+{
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+}
+.small
+{
+    font-size: small;
+}
+
+
+#container{
+/*    height	: 100%;*/
+    width: 100%;
+}
+#header{
+    display: block;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    /*background:white url(../images/RIMS.png) no-repeat scroll 0 0;*/
+    background-position: 5px 5px;
+    height: 110px;
+
+    -moz-border-radius-bottomleft: 1.7em;
+    webkit-border-bottom-left-radius: 1.7em;
+    border-bottom-left-radius: 1.7em;
+
+}
+#header img
+{
+    float: left;
+    border: 0px;
+    margin-left: -15px;
+    height: 100px;
+    display: inline-block;
+}
+
+#logo img
+{
+    width: 320px;
+}
+
+#columnwrap{
+    clear: both;
+}
+#content-wrap {
+    min-height: 400px;
+}
+#content-main{
+    margin-top: 10px;
+    height: auto;
+    padding: 5px;
+    min-height: 300px;
+    min-width: 900px;
+}
+#content-main h1,#content-main h2, #content-main h3, 
+#content-main h4, #content-main h5, #content-main h6 {
+    /*margin-left: -50px;*/
+}
+
+#logo{
+    padding: 0px;
+    margin: 0px;
+}
+#icon-logo
+{
+    /*height: 2em;*/
+    width: 6em;
+    background:white url(../images/rims.png) no-repeat scroll 0 0;
+}
+#icon-logo a
+{
+    width: 6em;
+    display: block;
+}
+#header small{
+}
+#nav-global {
+}
+#nav-global ul{
+    margin: 0px;
+    padding: 0px;
+}
+#nav-global ul li{
+    display: inline;
+    letter-spacing: 1.5px;
+    padding-left: 5px;
+}
+#nav-global ul li a {
+    text-decoration: none;
+}
+#footer{
+    margin-top:20px;
+    padding: 0px;
+}
+
+#footer p{
+    font-size: 0.9em;
+    text-align:center;
+    font-style: italic;
+    margin: 0px;
+    padding: 0px;
+}
+#footer ul{
+    text-align:center;
+    margin: 0px;
+    padding: 0px;
+}
+#footer ul li{
+    display: inline;
+    font-size: 0.8em;
+    padding-left: 5px;
+}
+.results-list {
+    width: 100%;
+}
+.pagination{
+    font-size: small;
+}
+.date-column, .user-column
+{
+    width: 150px;
+}
+
+/*
+* Top navigation menu
+*/
+#header
+{
+    display: none;
+}
+
+/*Settings Layout Defaults*/
+.settingsTable tr td
+{
+    vertical-align: top;
+    padding: .4em;
+}
+
+.settingsTable tr td FIELDSET
+{
+    padding: .4em;
+    margin-top: -.4em;
+}
+
+.settingsTable tr td div
+{
+    margin-top: 1em;
+}
+
+/*Browse Table Layout*/
+.browseTable
+{
+        padding: 0em;
+        margin: 0 0 .4em 0;
+        border-collapse: collapse;
+        font-size: .9em;
+        width: 95%;
+}
+
+.ui-widget .browseTable
+{
+    width: 100%;
+}
+
+.browseTable tr th
+{
+    vertical-align: middle;
+    border: solid 1px silver;
+    text-align: center;
+}
+
+.browseTable td
+{
+    padding: 0 .3em 0 .3em;
+    margin: 0;
+}
+
+.browseTable td .ui-button
+{
+    /*padding: 0;
+    margin: 0;*/
+    width: 6em;
+    height: 2em;
+    /*font-size: .7em;*/
+}
+
+.browseTable td[rel='MissingPfn'] .ui-button,
+.browseTable td[rel='MissingExcessTicket'] .ui-button
+{
+    width: 6em;
+}
+
+.browseTable td .ui-button .ui-button-text
+{
+    line-height: 2;
+    padding: 0;
+}
+
+.action-icon
+{
+    display: inline;
+}
+
+.SearchResults div div
+{
+    border: solid 1px #eeeeee;
+}
+.SearchResults ul
+{
+    margin: 0px;
+    border: solid 1px #eeeeee;
+}
+.SearchResults li
+{
+    margin: 1px;
+    padding: 1px;
+}
+.Header li
+{
+    text-align: center;
+}
+.Header
+{
+    font-weight: bold;
+}
+.StatusMessage
+{
+    display: block;
+}
+.StatusMessage input
+{
+    float: right;
+    font-size: 0.8em;
+}

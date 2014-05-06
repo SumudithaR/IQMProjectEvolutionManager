@@ -1,0 +1,41 @@
+﻿@model ClientPagedSearchViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <p class="StatusMessage StatusSearch">
+        <span>@Model.DisplayCriteria</span>
+        <a href="javascript: ;;" onclick="javascript: $('#SearchCriteria').toggle();" rel="button">Show/Hide</a>
+    </p>
+    <div id="SearchCriteria" style="display: none;">
+        @Html.Partial("SearchForm", Model)
+    </div>
+</div>
+
+<div class="SearchResults" rel="widget">
+    <h3>@String.Format("{0} Results", Model.FriendlyViewModelName)</h3>
+    <div rel="content">
+        <table>
+            <thead>
+                <tr>
+                    @Html.Partial("RowHeaderExt", new ClientViewModel())
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Data != null)
+                {
+                    foreach (var item in Model.Data.Select((x, i) => new { Data = x, Index = i }))
+                    { 
+                        <tr class="@((item.Index % 2 == 0) ? "label-row-odd" : "label-row-even")">
+                            @Html.Partial("RowDetailExt", new ClientViewModel { Data = item.Data })
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@Html.Partial("PageNavigationMenu")

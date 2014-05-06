@@ -1,0 +1,24 @@
+﻿.label-row-odd 
+{
+    background-color: silver;
+}
+
+.label-row-even
+ {
+    background-color: white;
+}
+
+.submit-bar {
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+.submit-bar .ui-cancel-button 
+{
+    float: left;
+}
+
+.submit-bar .ui-action-button 
+{
+    float: right;
+}

@@ -1,0 +1,10 @@
+﻿.helplegend
+{
+    margin-top: -2.5em;
+    display:inline-block;
+}
+.helpfigure table td
+{
+    /* HACK for css selcetor first-child */
+    font-weight: expression(this.previousSibling==null?'bold':'normal');
+}

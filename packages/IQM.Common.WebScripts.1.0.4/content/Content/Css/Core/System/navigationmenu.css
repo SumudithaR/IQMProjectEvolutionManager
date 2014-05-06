@@ -1,0 +1,95 @@
+﻿.NavigationMenu
+{
+    /*background-color: White;*/
+    padding-top: 6px;
+    min-height: 28px;
+}
+.NavigationMenu ul
+{
+    width: 100%;
+    margin: 0px;
+    padding:0px;
+    z-index: 3000;
+}
+.NavigationMenu ul li
+{
+    display: inline-block;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    line-height: 24px;
+    float: left;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.NavigationMenu ul li *
+{
+    vertical-align: middle;
+}
+.NavigationMenu ul li ul
+{
+    display: none;
+    position: absolute;
+    width: 200px;
+}  
+.NavigationMenu ul li:last-child
+{
+    float: right;
+} 
+/*
+.nav-item {
+    background-color: #FFFFCC;
+    border: 1px solid #88AADD;
+    border-radius: 4px;
+}
+
+.nav-item:hover {
+    background-color: #FFFF66;
+}*/
+
+/* TAB MENU   
+----------------------------------------------------------*/
+ul#menu {
+    /*border-bottom: 1px #5C87B2 solid;*/
+    padding: 0 0 1px;
+    position: relative;
+    margin: auto;
+    /*text-align: right;*/
+    width: 98%;
+}
+
+ul#menu li {
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li#greeting {
+    padding: 10px 10px;
+    /*font-weight: bold;*/
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #fff;
+}
+
+.nav-item a {
+    padding: 6px 20px;
+    text-decoration: none;
+    line-height: 2.8em;
+}
+/*
+.nav-item a:hover {
+    background-color: #FFFF66;
+    text-decoration: none;
+    border-color: blue;
+    color: blue;
+}
+
+.nav-item a:active {
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+ul#menu li.selected a {
+    background-color: #fff;
+    color: #000;
+}*/
+

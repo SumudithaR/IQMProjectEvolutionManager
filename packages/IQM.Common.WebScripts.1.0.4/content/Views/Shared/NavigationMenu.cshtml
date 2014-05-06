@@ -1,0 +1,81 @@
+﻿@using AssetManagement.Models
+<div id="NavigationMenu" class="NavigationMenu">
+    <ul id="NavMenu">
+        <li id="icon-logo">
+            <a href="@Url.Content("~/")">
+                <img src="@Url.Content("~/Content/images/Core/Domain/asset-logo.png")" alt="Asset Management" />
+            </a>
+        </li>
+        @if (Request.IsAuthenticated)
+        {
+            <li><span>Welcome @User.Identity.Name!</span></li>
+        }
+        @if(User.IsInRole(RoleProfiles.AssetEdit))
+        {
+        <li class="nav-item">@Html.ActionLink("Software", "Search", "Software", null, new { @class = "ui-state-default ui-corner-all" } )</li>
+        <li class="nav-item">@Html.ActionLink("Hardware", "Search", "AssetType", null, new { @class = "ui-state-default ui-corner-all" })</li>
+        }
+        @if(User.IsInRole(RoleProfiles.AssetRequest) || User.IsInRole(RoleProfiles.AssetEdit))
+        {
+        <li class="nav-item"><a href="#assets" class = "ui-state-default ui-corner-all">Assets</a>
+            <ul>
+                @if(User.IsInRole(RoleProfiles.AssetEdit))
+                {
+                    <li>@Html.ActionLink("Manage Assets", "Search", "Asset")</li>
+                    <li>@Html.ActionLink("Deployments", "Search", "Deployment")</li>
+                }
+                @if(User.IsInRole(RoleProfiles.AssetRequest))
+                {
+                    <li>@Html.ActionLink("Asset Requests", "Index", "AssetRequest")</li>
+                }
+            </ul>
+            @*<a class="ui-state-default ui-state-disabled ui-corner-all" href="#">Assets</a>*@
+        </li>
+        }
+        @if(User.IsInRole(RoleProfiles.AssetEdit))
+        {
+        <li class="nav-item">@Html.ActionLink("Suppliers", "Search", "Supplier", null, new { @class = "ui-state-default ui-corner-all" })</li>
+        <li class="nav-item">@Html.ActionLink("Locations", "Search", "Location", null, new { @class = "ui-state-default ui-corner-all" })</li>
+        <li class="nav-item">@Html.ActionLink("Admin", "Index", "ManagedListItem", null, new { @class = "ui-state-default ui-corner-all" })</li>
+        }
+        <li>
+            <a href="http://www.iqmsoftware.co.uk">
+                <img src="@Url.Content("~/Content/images/Core/System/iqm-logo.png")" alt="IQM Software" style="height:2em;" />
+            </a>
+            <ul>
+                <li>
+                    <a id="homemenuitem" href="http://www.iqmsoftware.co.uk">Website</a>
+                </li>
+                <li>
+                    <a id="actionmenuitem" href="@Modules.IQMProductDashboard">Product Dashboard</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#NavMenu > li > ul").flyoutmenu({});
+
+        $("#NavMenu > li > ul").find("a").click(function () {
+            window.location = $(this).attr("href");
+        });
+
+
+        $("#NavMenu > li").mouseover(function () {
+            $(this).find(" > ul").css("top", ($(this).position().top + ($(this).height() - 2))).css("left", $(this).position().left).show();
+        });
+        $("#NavMenu > li").mouseleave(function () {
+            $(this).find(" > ul").hide();
+        });
+    });
+
+    $(function() {
+        //hover states on the static widgets
+        $('ul#NavMenu > li > a.ui-state-default').hover(
+            function() { $(this).addClass('ui-state-hover'); },
+            function() { $(this).removeClass('ui-state-hover'); }
+        );
+    });
+    
+</script>

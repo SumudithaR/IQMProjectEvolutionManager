@@ -1,0 +1,13 @@
+﻿.SchedulePane
+{
+    background-color:#FFCCAA;
+    border: solid 1px #d54e21;    
+}
+.SchedulePane table
+{
+    width: 100%;
+}
+.SchedulePane table td
+{
+    text-align: center;
+}

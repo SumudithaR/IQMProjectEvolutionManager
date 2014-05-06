@@ -1,0 +1,60 @@
+﻿@model ClientViewModel
+@{
+    ViewBag.Title = "Client Detail";
+}
+<div class="column half">
+    <div class="display-row">
+        <div class="display-label">
+            @Html.LabelFor(c => c.Data.CompanyName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(c => c.Data.CompanyName)
+        </div>
+    </div>
+
+    <div class="display-row">
+        <div class="display-label">
+            @Html.LabelFor(c => c.Data.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(c => c.Data.Email)
+        </div>
+    </div>
+
+    <div class="display-row">
+        <div class="display-label">
+            @Html.LabelFor(c => c.Data.Telephone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(c => c.Data.Telephone)
+        </div>
+    </div>
+
+    <div class="display-row">
+        <div class="display-label">
+            @Html.LabelFor(c => c.Data.LiabilityInsuranceExpiry)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(c => c.Data.LiabilityInsuranceExpiry)
+        </div>
+    </div>
+
+    <div class="display-row">
+        <div class="display-label">
+            @Html.LabelFor(c => c.Data.SAPNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(c => c.Data.SAPNumber)
+        </div>
+    </div>
+</div>
+
+<div class="column half">
+    <div rel="widget">
+        <h3>Address Info.</h3>
+        <div rel="content">
+            @{ var Addresses = new AddressViewModel {Data = Model.Data.Addresses[0], ApplicationSettings = Model.ApplicationSettings}; }
+            @Html.EditorFor(model => Addresses)
+        </div>
+    </div>
+</div>

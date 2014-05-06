@@ -1,0 +1,58 @@
+﻿/* css style sheet for printing */
+html, body 
+{
+    font-size: 12px;
+    background-color: White; 
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.Container, #content-main{ 
+    border-width: 0px; 
+    -moz-border-radius: inherit;
+    -moz-box-shadow: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, th, legend, caption, strong, .Header {
+    color: black;
+    margin: 1px;
+    text-decoration: underline;
+}
+
+.NavigationMenu, #header, #footer, .action-icon, .action-text, .ReportTools, .helpmessage, .reportcriteria, .ui-tabs-nav
+{
+    display: none;
+}
+label {
+    font-weight: bold;
+    width: 150px;
+    display: inline-block;
+}
+
+.CourtCaseOverviewColumn
+{
+    width: 300px;
+    float: left;
+}
+p {
+    margin: 0px;
+    padding: 0.2em;
+}
+ul li {
+    list-style: none;
+    /*padding-left: 1em;*/
+    padding: 0px;
+    margin: 0px;
+}
+ul {
+    padding: 0px;
+    margin: 0px;
+}
+.StatusMessage
+{
+    display: none;
+}
+div [rel=widget]
+{
+    /*border: solid 1px black;*/
+    padding-bottom: 0.5em;
+}

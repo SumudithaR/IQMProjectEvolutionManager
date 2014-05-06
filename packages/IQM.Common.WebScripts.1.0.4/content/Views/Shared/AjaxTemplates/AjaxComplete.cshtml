@@ -1,0 +1,29 @@
+﻿@model IQM.Common.Web.Interfaces.IAjaxViewModel
+@{
+    string update;
+    if (ViewBag.AjaxOperation != null && ViewBag.AjaxOperation == "update")
+    {
+        update = "true";
+    }
+    else
+    {
+        update = "false";
+    }
+    
+    string deleted;
+    if (ViewBag.AjaxOperation != null && ViewBag.AjaxOperation == "deleted")
+    {
+        deleted = "true";
+    }
+    else
+    {
+        deleted = "false";
+    }
+}
+
+<div id="partialViewDialogData">
+    <table id="@Model.GetDomainObjectName()DetailCompleteHtml">
+        @Html.DisplayFor(model => model.GetViewModelDataObject)
+    </table>
+    <input id="@Model.GetDomainObjectName()DetailComplete" type="hidden" value='{"success": true, "update": @update, "deleted": @deleted, "id": @Model.GetDataId()}' />
+</div>

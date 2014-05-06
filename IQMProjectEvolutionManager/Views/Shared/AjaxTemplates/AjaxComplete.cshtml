@@ -1,0 +1,7 @@
+﻿@model EstatesManagement.Core.Interfaces.IAjaxViewModel
+<div id="partialViewDialogData">
+    <table id="@Model.GetDomainObjectName()DetailCompleteHtml">
+        @Html.DisplayFor(model => model.GetViewModelDataObject)
+    </table>
+    <input id="@Model.GetDomainObjectName()DetailComplete" type="hidden" value='{"success": true, "update": false, "deleted": false, "id": @Model.GetDataId()}' />
+</div>

@@ -1,0 +1,30 @@
+﻿@import "style-default.css";
+@import "style-navigationmenu.css";
+@import "style-dialog.css";
+@import "style-form.css";
+@import "style-help.css";
+@import "style-complaints.css";
+@import "style-performedduty.css";
+@import "style-inspector.css";
+@import "style-ajaxwrapper.css";
+@import "style-timetable.css";
+@import "style-dashboard.css";
+@import "style-user.css";
+@import "style-import.css";
+@import "style-report.css";
+@import "style-jquery-ui.css";
+@import "style-account.css";
+@import "style-penaltyfare.css";
+@import "style-audit.css";
+@import "style-individual.css";
+@import "style-droplist.css";
+@import "style-mobile.css";
+@import "style-courtcase.css";
+
+/*
+Colours
+
+Primary Colour:		#d54e21
+Secondary Colour:	#ff6600
+Tertiary Colour:	#ffccaa
+*/

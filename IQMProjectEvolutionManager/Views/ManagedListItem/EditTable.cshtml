@@ -1,0 +1,58 @@
+﻿@model IList<ManagedListItem>
+@using (Html.BeginForm())
+{
+    <span class="StatusMessage StatusSuccess">
+        Tip: You can drag the rows up and down to reorder thenm. You need to click 'Save' if you make <b>any</b> changes.
+    </span>
+    <table id="dropDownItems" style="width: 100%;">
+        <thead>
+            <tr>
+                <th>Name </th>
+                @if (User.IsInRole(RoleProfiles.SystemAdmin))
+                {
+                    <th>Short Name</th>
+                    <th>Meta Data</th>
+                }
+                <th>Visible</th>
+                @if (User.IsInRole(RoleProfiles.SystemAdmin))
+                {
+                    <th></th>
+                }
+            </tr>
+        </thead>
+        @for (var i = 0; i < Model.Count; i++)
+        { 
+            <tr class="@((i % 2 == 0) ? "odd-row" : "even-row")" id="dropList_@(Model[i].ManagedListItemId)">
+                <td>
+                    @Html.EditorFor(x => x[i].Name)
+                    @Html.HiddenFor(x => x[i].ManagedListItemId)
+                    @Html.HiddenFor(x => x[i].Order)
+                </td>
+                @if (User.IsInRole(RoleProfiles.SystemAdmin))
+                {
+                    <td>
+                        @Html.EditorFor(x => x[i].ShortName)
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x[i].MetaData)
+                    </td>
+                }
+                <td>
+                    @Html.EditorFor(x => x[i].Visible)
+                </td>
+                @if (User.IsInRole(RoleProfiles.SystemAdmin))
+                {
+                    <td>
+                        <input type="button" value="Delete" onclick=" javascript: SPAM.DropDownItem.Remove(@(Model[i].ManagedListItemId)); " />
+                    </td>
+                }
+            </tr>
+        }
+        <tfoot>
+            <tr>
+                <td>@Html.ActionLink("Cancel", "Index", "ManagedListItem", null, new { rel = "button" })</td>
+                <td colspan="5" style="text-align: right;"><input type="submit" value="Save" /></td>
+            </tr>
+        </tfoot>
+    </table>
+}

@@ -1,0 +1,45 @@
+﻿#complaints
+{
+    padding: 0;
+}
+#complaints div, #comments div
+{
+    display: inline-block;
+    list-style: none;
+    padding: 5px    
+}
+/*#payments
+{
+    display: block;
+    padding:0;
+}*/
+.ComplaintsRow, .CommentsRow 
+{
+    width: 100%;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+.ComplaintsRow div, .CommentsRow div
+{
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: text-top;
+}
+.ComplaintsHeader div
+{
+    font-weight: bold;
+}
+
+.Complaint-Date
+{
+    width: 12em;
+}
+.Complaint-Action
+{ 
+    width: 5em;
+}
+.Complaint-Text 
+{
+    width: 30em;
+}

@@ -1,0 +1,5 @@
+﻿@model StatusMessage
+<p class="StatusMessage Status@(Model.Status)">
+    <span>@Model.Message</span>
+    <input type="button" rel="button" value="Hide" onclick="javascript: $(this).parent().remove();" />
+</p>

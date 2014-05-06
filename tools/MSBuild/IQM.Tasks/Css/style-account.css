@@ -1,0 +1,52 @@
+﻿.account_logon table
+{
+	border-collapse: collapse;
+	padding: 1em;
+	width: 98%;
+}
+
+.account_logon table td
+{
+	text-align: center;
+}
+
+.account_logon table td p
+{
+	text-align: left;
+}
+
+.actions ul li
+{
+	text-align: left;
+    margin: 10px;
+}
+
+.actions #homemenuitem
+{
+    padding: 5px;
+    padding-left: 30px;
+    background-image: url(../Images/22x22/home.png);
+    background-repeat: no-repeat;
+}
+.actions #actionmenuitem
+{
+    padding: 5px;
+    padding-left: 30px;
+    background-image: url(../Images/22x22/action.png);
+    background-repeat: no-repeat;
+}
+
+.account-changePasswordPanel
+{
+	margin-top: 1em;
+}
+
+.account-changePasswordPanel table tr td
+{
+	vertical-align: top;
+}
+
+.account-changePasswordPanel table tr td FIELDSET
+{
+	margin: -.3em 0;
+}

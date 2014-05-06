@@ -1,0 +1,126 @@
+﻿@model ClientViewModel
+@{
+    ViewBag.Title = "Client Detail";
+}
+<div class="display-row">
+    <div class="display-label">
+        @Html.LabelFor(c => c.Data.CompanyName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(c => c.Data.CompanyName)
+    </div>
+</div>
+
+<div class="display-row">
+    <div class="display-label">
+        @Html.LabelFor(c => c.Data.SAPNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(c => c.Data.SAPNumber)
+    </div>
+</div>
+
+@if(Model.Data.Addresses.Any())
+{
+    <div class="container full">
+        <h3>Address(es)</h3>
+        @foreach (var address in Model.Data.Addresses)
+        {
+        <div class="address-line">
+            @Html.DisplayFor(c => address)
+        </div>
+        }
+    </div>
+}
+<div>
+    <div class="container full">
+    <h3>Current Contracts</h3>
+    @if(@Model.CurrentContracts.Any())
+    {
+    <table>
+        <thead>
+        <tr>
+            <td>@Html.LabelFor(c => @Model.CurrentContracts[0].LeaseStart)</td>
+            <td>@Html.LabelFor(c => @Model.CurrentContracts[0].LeaseEnd)</td>
+            <td>@Html.LabelFor(c => @Model.CurrentContracts[0].TradingAs)</td>
+            <td>@Html.Label("Premise(s)")</td>
+        </tr>
+        </thead>
+        <tbody class="clickable">
+        @foreach (var contractHistItem in Model.Data.Contracts)
+        {
+            <tr onclick="window.location.href='@Url.Action("Detail", "Contract", new { id = contractHistItem.Contract.ContractId })'">
+            <td>@Html.DisplayFor(c => contractHistItem.Contract.LeaseStart)</td>
+            <td>@Html.DisplayFor(c => contractHistItem.Contract.LeaseEnd)</td>
+            <td>@Html.DisplayFor(c => contractHistItem.Contract.TradingAs)</td>
+            <td>
+            @foreach (var premiseListItem in contractHistItem.Contract.PremiseList)
+            {
+                <span>@premiseListItem.Premise.TenancyRef [@premiseListItem.Premise.PremiseType] at @premiseListItem.Premise.Location.LocationName</span><br />
+            }
+            </td>
+        </tr>
+        }
+        </tbody>
+    </table>
+    }
+    </div>
+</div>
+
+<div>
+    <div class="container full">
+    <h3>Pending Contracts</h3>
+    @if(@Model.PendingContracts.Any())
+    {
+    <table>
+        <thead>
+        <tr>
+            <td>@Html.LabelFor(c => @Model.PendingContracts[0].LeaseStart)</td>
+            <td>@Html.LabelFor(c => @Model.PendingContracts[0].LeaseEnd)</td>
+            <td>@Html.LabelFor(c => @Model.PendingContracts[0].TradingAs)</td>
+            <td>@Html.Label("Premise(s)")</td>
+        </tr>
+        </thead>
+        <tbody class="clickable">
+        @foreach (var contract in @Model.PendingContracts)
+        {
+        <tr onclick="window.location.href='@Url.Action("Detail", "Contract", new { id = contract.ContractId })'">
+            <td>@Html.DisplayFor(c => contract.LeaseStart)</td>
+            <td>@Html.DisplayFor(c => contract.LeaseEnd)</td>
+            <td>@Html.DisplayFor(c => contract.TradingAs)</td>
+        </tr>
+        }
+        </tbody>
+    </table>
+    }
+    </div>
+</div>
+
+<div>
+    <div class="container full">
+    <h3>Past Contracts</h3>
+    @if(@Model.PastContracts.Any())
+    {
+    <table>
+        <thead>
+        <tr>
+            <td>@Html.LabelFor(c => @Model.PastContracts[0].LeaseStart)</td>
+            <td>@Html.LabelFor(c => @Model.PastContracts[0].LeaseEnd)</td>
+            <td>@Html.LabelFor(c => @Model.PastContracts[0].TradingAs)</td>
+            <td>@Html.Label("Premise(s)")</td>
+        </tr>
+        </thead>
+        <tbody class="clickable">
+        @foreach (var contract in @Model.PastContracts)
+        {
+        <tr onclick="window.location.href='@Url.Action("Detail", "Contract", new { id = contract.ContractId })'">
+            <td>@Html.DisplayFor(c => contract.LeaseStart)</td>
+            <td>@Html.DisplayFor(c => contract.LeaseEnd)</td>
+            <td>@Html.DisplayFor(c => contract.TradingAs)</td>
+        </tr>
+        }
+        </tbody>
+    </table>
+    }
+    </div>
+</div>

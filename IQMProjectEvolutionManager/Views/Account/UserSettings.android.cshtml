@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "User Settings";
+}
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+
+<script type="text/javascript">
+    google.load("visualization", "1", { packages: ["corechart"] });
+    $(document).ready(function () {
+        $("#tabs").tabs().addClass("ui-tabs-vertical ui-helper-clearfix");
+        $("#tabs > li").removeClass("ui-corner-top").addClass("ui-corner-left");
+    });
+</script>
+
+<div id="multiple-user-settings-div">
+    <h1>User Settings</h1>
+    <div id="tabs" class="release-tabs">
+        <fieldset id="user-settings-selection-fieldset" class="projects-fieldset">
+            <legend id="user-settings-legend" class="main-legends">Settings</legend>
+            <ul style="padding-right: 0.3em; margin-top: 1em;">
+                <li style="vertical-align: middle;">
+                    <a href="#user-password-settings">Password</a>
+                </li>
+                <li style="vertical-align: middle;">
+                    <a href="#user-notification-settings">Notification</a>
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset id="user-settings-details-fieldset" class="releases-fieldset">
+            <legend id="user-settings-details-legend" class="main-legends">Details</legend>
+            <div id="user-password-settings" class="release-project-status-panel">
+                @{
+                    Html.RenderAction("PasswordSettings");
+                }
+            </div>
+            <div id="user-notification-settings" class="release-project-status-panel">
+                @{
+                    Html.RenderAction("NotificationSettings");
+                }
+            </div>
+        </fieldset>
+    </div>
+</div>

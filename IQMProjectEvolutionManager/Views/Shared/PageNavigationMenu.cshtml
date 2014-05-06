@@ -1,0 +1,26 @@
+﻿@if (Model.Data != null)
+{
+    <div class="results-table-nav-pages">
+        @if (Model.Data.PageNumber > 1)
+        {
+            <a href="@Url.Action("SearchResults", Model.FirstPage())"><img src="@Url.Content("~/Content/images/22x22/First.png")" alt="First Page"/></a>
+        }
+
+        @if (Model.Data.PageNumber > 1)
+        {
+            <a href="@Url.Action("SearchResults", Model.PrevPage())"><img src="@Url.Content("~/Content/images/22x22/Prev.png")" alt="Previous Page"/></a>
+        }
+
+        <span>Page @Model.Data.PageNumber of @Model.Data.PageCount</span>
+    
+        @if (Model.Data.PageNumber < Model.Data.PageCount)
+        {
+            <a href="@Url.Action("SearchResults", Model.NextPage())"><img src="@Url.Content("~/Content/images/22x22/Next.png")" alt="Next Page"/></a>
+        }
+
+        @if (Model.Data.PageNumber < Model.Data.PageCount)
+        {
+            <a href="@Url.Action("SearchResults", Model.LastPage())"><img src="@Url.Content("~/Content/images/22x22/Last.png")" alt="Last Page"/></a>
+        }
+    </div>
+}

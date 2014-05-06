@@ -1,0 +1,9 @@
+﻿<h2>Managed List Administration</h2>
+<ul>
+    @foreach (var dropDownType in Enum.GetValues(typeof(ManagedListItemType)))
+    {
+        <li>
+            @Html.ActionLink(DropDownListHelper.GetDescription((Enum)dropDownType), "Edit", "ManagedListItem", new { id = dropDownType }, new { })
+        </li>
+    }
+</ul>

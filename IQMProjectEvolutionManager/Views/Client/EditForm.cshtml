@@ -1,0 +1,12 @@
+﻿@model ClientViewModel
+<div rel="widget">
+    <h3>Edit Tenant : @((Model.Data != null) ? Model.Data.CompanyName : "")</h3>
+    <div rel="content">
+        @using (Html.BeginForm("Update", "Client", new { id = Model.GetDataId() }, FormMethod.Post))
+        {
+            @Html.HiddenFor(model => model.Data.ClientId)
+            @Html.Partial("ExtendedDetail", Model)
+            @Html.Partial("SubmitBar", "Save")
+        }
+    </div>
+</div>

@@ -1,0 +1,16 @@
+﻿html, body, table, input, textarea, select
+{
+    font-size: 12px;
+}
+ul
+{
+    margin-bottom: 10px;
+}
+fieldset
+{
+    padding-top: 20px;
+}
+.StatusMessage span
+{
+    float: left;
+}

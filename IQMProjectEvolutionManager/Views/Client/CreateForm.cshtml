@@ -1,0 +1,32 @@
+﻿@model ClientViewModel
+@using System.Web.Mvc.Html
+@if (Model.Data == null)
+{
+    Model.Data = new Client();
+}
+
+<div rel="widget">
+    <h3>Create New Tenant</h3>
+    <div rel="content">
+        @using (Html.BeginForm("Save", "Client", FormMethod.Post))
+        {
+            @Html.ValidationSummary(false)
+            @Html.Partial("Detail", Model)
+            @Html.Partial("SubmitBar", "Save")
+        }
+    </div>
+    @{
+        var statusMessage = TempData["Status"] as StatusMessage;
+        if (statusMessage != null)
+        {
+            if (statusMessage.Status == StatusMessage.StatusOptions.Error)
+            {
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#StaffPassInstanceSaveButton").attr("disabled", "disabled");
+                });
+            </script>
+            }
+        }
+    }
+</div>

@@ -1,0 +1,22 @@
+﻿#roles li label
+{
+    display:inline-block;
+    width:15em;
+}
+
+.editUserFieldSet
+{
+	margin-top: -1em;
+}
+
+/*Edit User Layout*/
+.editUserTable
+{
+	width: 98%;
+	border-collapse: collapse;
+}
+
+.editUserTable tr td
+{
+	padding: .4em;
+}

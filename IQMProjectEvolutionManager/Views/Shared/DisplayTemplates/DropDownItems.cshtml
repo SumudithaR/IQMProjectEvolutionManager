@@ -1,0 +1,9 @@
+﻿@model DropDownItem
+<div class="display-row">
+    <div class="display-label">
+        @Html.LabelForModel(Model)
+    </div>
+    <div class="display-field">
+        @Html.DropDownListFor(model => model.DropDownItemId, Model.ApplicationSettings.RentReviewPatterns.Select(ddi => new SelectListItem { Value = ddi.DropDownItemId.ToString(), Text = ddi.Name } ))
+    </div>
+</div>

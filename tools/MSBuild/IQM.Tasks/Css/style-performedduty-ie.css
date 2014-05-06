@@ -1,0 +1,94 @@
+﻿.DisplayRows ul li, .BarrierTrainWork ul li, .PenaltyFares ul li, .ExcessTickets ul li, .UnpaidFares ul li, .Offences ul li
+{
+    display: inline;
+}
+
+.tb-placeholder
+{
+    position: relative;
+    width: 100%;
+    text-align: left;
+    padding: 0;
+    margin: -1em 0 0 0;
+}
+
+.toolbar .validationErrors li, .detail-toolbar .validationErrors li
+{
+    margin: 0 0 .4em -1em;
+}
+
+.toolbar ul li img, .detail-toolbar ul li img
+{
+    left: 7.5em;
+}
+
+.toolbar .ui-menu .ui-menu-item a
+{
+    width: 100%;
+}
+
+.detailRow ul li, .EditRow ul li
+{
+    /*font-size: .7em;*/
+    padding: 0;
+    margin: 0 .2em 0 0;
+    white-space:nowrap;
+    overflow: hidden;
+}
+
+.BarrierTrainWorkHeader ul li
+{
+    margin: 0 .2em 0 0;
+    /*writing-mode: tb-rl;
+    filter: flipv fliph;*/
+    white-space: normal;
+    text-align: left;
+}
+
+.EditRow .numeric-col .check-box
+{
+    margin: -.19em;
+}
+
+.PerformDutyDashboardItem ul label
+{
+    width: 100px;
+    font-weight: bold;
+    display: inline;
+}
+.field-validation-valid
+{
+    display: none;
+}
+#ajaxDialog
+{
+    height: 250px;
+    display: block;
+}
+#ajaxDialog
+{
+    height: 250px;
+    display: block;
+}
+#performedduty, 
+#penaltyfares,
+#excesstickets
+{
+    padding: .5em;
+}
+.label-col, .label-col input
+{
+    width: 6em;
+}
+.performedduty-summary-part
+{
+    display: inline;
+}
+.performedduty-tasks table
+{
+    display: inline;
+}
+.validationErrors li span
+{
+    float: left;
+}

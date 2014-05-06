@@ -1,0 +1,4 @@
+﻿.ComplaintsRow div, .CommentsRow div, #complaints div, #comments div
+{
+    display: inline;
+}

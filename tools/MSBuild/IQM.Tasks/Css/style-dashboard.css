@@ -1,0 +1,31 @@
+.dashboard
+{
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+.dashboard div
+{
+    display: inline-block;
+    width: 10em;
+    height: 10em;
+    margin: 1em;
+    text-align:center;
+    padding: 5px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -web-border-radius: 4px;
+}
+.dashboard div
+{
+    padding: 0.5em;
+}
+.dashboard div a
+{
+    display: block;
+}
+.dashboard img
+{
+     /*width:5em;
+     height:5em;*/
+}

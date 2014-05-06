@@ -1,0 +1,82 @@
+﻿.StatusMessage,
+.StatusWarning,
+.StatusInfo,
+.StatusError,
+.StatusFailure,
+.StatusSuccess,
+.StatusSearch
+{
+    padding: 5px 5px 5px 25px;
+    margin: 5px;
+    -moz-border-radius: 3px;
+    background-position: 3px 3px;
+    height: 2em;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+    .StatusMessage input,
+    .StatusWarning input,
+    .StatusInfo input,
+    .StatusError input,
+    .StatusFailure input,
+    .StatusSuccess input,
+    .StatusSearch input
+    {
+        float: right;
+        font-size: 0.8em;
+    }
+
+    .StatusMessage a,
+    .StatusWarning a,
+    .StatusInfo a,
+    .StatusError a,
+    .StatusFailure a,
+    .StatusSuccess a,
+    .StatusSearch a
+    {
+        font-size: .8em;
+        float: right;
+    }
+
+    .StatusMessage input
+    {
+        display: none;
+    }
+
+
+.StatusWarning
+{
+    background-image: url('../Images/22x22/warning.png');
+    border: 1px solid #FFCC00;
+    background-color: #FFFF99;
+}
+
+.StatusSuccess
+{
+    background-image: url('../Images/22x22/tick.png');
+    border: solid 1px green;
+    background-color: #CCFFCC;
+}
+
+.StatusFailure, .StatusError
+{
+    background-image: url('../Images/22x22/cross.png');
+    border: solid 1px red;
+    background-color: #FFCCCC;
+}
+
+.StatusInfo, .StatusSearch
+{
+    border: solid 1px silver;
+}
+
+.StatusInfo
+{
+    background-image: url('../Images/22x22/information.png');
+}
+
+.StatusSearch
+{
+    background-image: url('../Images/22x22/search.png');
+}

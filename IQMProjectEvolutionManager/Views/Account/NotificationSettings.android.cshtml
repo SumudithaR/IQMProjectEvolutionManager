@@ -1,0 +1,47 @@
+﻿@model NotificationSettingsModel
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Scripts/libraries/jquery/validate/jquery.validate.js"></script>
+<script src="~/Scripts/libraries/jquery/validate/jquery.validate.unobtrusive.js"></script>
+
+
+@using (Ajax.BeginForm("NotificationSettings", "Account", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "notification-settings-inner-div", InsertionMode = InsertionMode.Replace }, new { id = "notification-settings-form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div id="notification-settings-inner-div">
+        <div style="border: lightgrey 1px solid; padding: 1.3em;">
+
+            <ol>
+                <li>
+                    @Html.LabelFor(m => m.Mobile)
+                    @Html.TextBoxFor(m => m.Mobile)
+                    @Html.ValidationMessageFor(m => m.Mobile)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Email)
+                    @Html.TextBoxFor(m => m.Email)
+                    @Html.ValidationMessageFor(m => m.Email)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.SmsSubscriber)
+                    @Html.CheckBoxFor(m => m.SmsSubscriber)
+                    @Html.ValidationMessageFor(m => m.SmsSubscriber)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.SmsNotificationPeriod)
+                    @Html.DropDownListFor(m => m.SmsNotificationPeriod, Model.NotificationPeriods, "Select a value")
+                    @Html.ValidationMessageFor(m => m.SmsNotificationPeriod)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.CalendarSubscriber)
+                    @Html.CheckBoxFor(m => m.CalendarSubscriber)
+                    @Html.ValidationMessageFor(m => m.CalendarSubscriber)
+                </li>
+            </ol>
+
+            <input id="submit-button" type="submit" value="Save" class="ui-button ui-widget ui-state-default ui-corner-all" />
+        </div>
+    </div>
+}
+

@@ -1,0 +1,44 @@
+﻿.StatusMessage
+{
+    display: block;
+    background-repeat: no-repeat;
+    padding: 5px 5px 5px 25px;
+    margin: 5px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    background-position: 3px 3px;
+}
+.StatusMessage input
+{
+    float: right;
+    font-size: 0.8em;
+    display: none;
+}
+
+.StatusMessage a
+{
+    font-size: .8em;
+}
+.StatusWarning
+{
+    border: 1px solid #FFCC00;
+    background-color: #FFFF99;
+    background-image: url('../Images/22x22/warning.png');
+}
+.StatusSuccess
+{
+    background-image: url('../Images/22x22/tick.png');
+    border: solid 1px green;
+    background-color: #CCFFCC;
+}
+.StatusFailure, .StatusError
+{
+    background-image: url('../Images/22x22/cross.png');
+    border: solid 1px red;
+    background-color: #FFCCCC;
+}
+.StatusInfo
+{
+    background-image: url('../Images/22x22/information.png');
+    border: solid 1px silver;
+}

@@ -1,0 +1,9 @@
+﻿.transactionLog ul
+{
+    margin: 0px;
+    padding: 0px;
+}
+.transactionLog ul li
+{
+    display: inline-block;
+}

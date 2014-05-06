@@ -1,0 +1,19 @@
+﻿.loading-content
+{
+    background-image: url('/asset-management/content/images/core/system/ajax-loader.gif');
+    background-position: right;
+    padding-right: 20px;
+    background-repeat: no-repeat;
+}
+
+.loading-content-replace
+{
+    background-image: url('/asset-management/content/images/core/system/ajax-loader.gif');
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+}
+
+#searchResults > table {
+    width: 100%;
+}

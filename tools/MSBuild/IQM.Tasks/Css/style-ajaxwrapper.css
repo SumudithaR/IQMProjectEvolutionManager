@@ -1,0 +1,19 @@
+﻿#AjaxWrapper_NotificationWindow
+{
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    /* style the loading image */
+    background-image: url(../images/notification-bar-ajax-loader.gif);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-color:  #ffccaa;
+    border-bottom: solid 1px #d54e21;
+}
+
+#AjaxWrapper_StatusMessage
+{
+    font-weight: bold;
+    padding: 5px;
+}

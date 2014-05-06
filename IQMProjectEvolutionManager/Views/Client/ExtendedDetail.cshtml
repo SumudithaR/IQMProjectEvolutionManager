@@ -1,0 +1,78 @@
+﻿@model ClientViewModel
+<div class="display-row">
+    <div class="display-label">
+        @Html.LabelFor(c => c.Data.CompanyName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(c => c.Data.CompanyName)
+    </div>
+</div>
+
+<div class="display-row">
+    <div class="display-label">
+        @Html.LabelFor(c => c.Data.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(c => c.Data.Email)
+    </div>
+</div>
+
+<div class="display-row">
+    <div class="display-label">
+        @Html.LabelFor(c => c.Data.Telephone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(c => c.Data.Telephone)
+    </div>
+</div>
+
+<div class="display-row">
+    <div class="display-label">
+        @Html.LabelFor(c => c.Data.LiabilityInsuranceExpiry)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(c => c.Data.LiabilityInsuranceExpiry)
+    </div>
+</div>
+
+<div class="display-row">
+    <div class="display-label">
+        @Html.LabelFor(c => c.Data.SAPNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(c => c.Data.SAPNumber)
+    </div>
+</div>
+
+@if(Model.Data.Addresses.Any())
+{
+    <div class="column">
+        <div rel="widget">
+            <h3>Address(es)</h3>
+            <div rel="content">
+                <table>
+                    <header>
+                        <th>@Html.LabelFor(a => a.Data.Addresses[0].AddressName)</th>
+                        <th>@Html.LabelFor(a => a.Data.Addresses[0].Line1)</th>
+                        <th>@Html.LabelFor(a => a.Data.Addresses[0].Line2)</th>
+                        <th>@Html.LabelFor(a => a.Data.Addresses[0].Line3)</th>
+                        <th>@Html.LabelFor(a => a.Data.Addresses[0].Town)</th>
+                        <th>@Html.LabelFor(a => a.Data.Addresses[0].County)</th>
+                        <th>@Html.LabelFor(a => a.Data.Addresses[0].Postcode)</th>
+                    </header>
+                    <tbody id="AddressList">
+                        @foreach (var address in Model.Data.Addresses)
+                        {
+                            @Html.DisplayFor(c => address)
+                        }
+                    </tbody>
+                    <tfoot>
+                        <td colspan="7" style="text-align: right">
+                            <a rel="button" href="javascript: ;;" onclick="javascript: ESTMAN.AjaxUtils.Add($(this), @Model.Data.ClientId, 'Address');">Add Address</a>
+                        </td>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,39 @@
+﻿.ui-datepicker-trigger 
+{
+    cursor: pointer;
+}
+.ui-autocomplete-loading  
+{
+    background: white url('../images/ajax-loader.gif') right center no-repeat; 
+}
+.ui-dialog .ui-dialog-content 
+{
+    overflow: hidden;
+}
+.ui-widget {
+    font-size:1em;
+}
+.ui-widget .ui-widget {
+    /*font-size:0.9em;*/
+}
+input.ui-button {
+    padding:0.1em 1em;
+}
+.ui-menu .ui-icon {
+    float:right;
+}
+.ui-autocomplete
+{
+    /*font-size: .7em;*/
+}
+.ui-menu .ui-menu-item a 
+{
+    line-height: 1;
+}
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }

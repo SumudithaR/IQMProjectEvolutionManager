@@ -1,0 +1,113 @@
+﻿@model IList<IQMProjectEvolutionManager.Core.DomainWrappers.ReleaseDomainWrapper>
+@foreach (var releaseDomainWrapper in Model)
+{
+    <div id="release-project-status-panel-@(releaseDomainWrapper.Data.ReleaseId)-@(releaseDomainWrapper.AssociatedProjectId)" class="release-project-status-panel">
+        <fieldset class="release-info">
+            <legend>@releaseDomainWrapper.Data.Name</legend>
+            <br />
+            <div>
+                <label class="release-info-label">Due date: </label>@releaseDomainWrapper.Data.DueDate.ToShortDateString()
+            </div>
+            <div>
+                <label class="release-info-label">Type: </label>@releaseDomainWrapper.Data.ReleaseType.Name
+            </div>
+            <div>
+                <label class="release-info-label">Status: </label>@releaseDomainWrapper.Data.ReleaseStatusType.Name
+            </div>
+            <div class="release-info-charts">
+                <div id="release-hours-chart" class="release-hours-chart">
+                    <div id="hours-chart-@(releaseDomainWrapper.Data.ReleaseId)-@(releaseDomainWrapper.AssociatedProjectId)" class="hours-chart" 
+                        data-hours-chart-hours-worked="@Math.Round(releaseDomainWrapper.Data.HoursWorked)" data-hours-chart-hours-remaining="@Math.Round(releaseDomainWrapper.Data.HoursRemaining)">
+                    </div>
+                </div>
+
+                <div id="release-completion-progressbar" class="release-completion-progressbar">
+                    <div id="completion-progressbar-@(releaseDomainWrapper.Data.ReleaseId)-@(releaseDomainWrapper.AssociatedProjectId)" class="completion-progressbar release-status-@(releaseDomainWrapper.GetReleaseStatus().ToString().ToLower())" 
+                        data-completion-progressbar-percentage-complete="@Math.Round(releaseDomainWrapper.Data.PercentageComplete).ToString()">
+                        <div id="completion-progressbar-label-@(releaseDomainWrapper.Data.ReleaseId)-@(releaseDomainWrapper.AssociatedProjectId)" class="completion-progressbar-label" 
+                            data-completion-progressbar-label-percentage-complete="@(Math.Round(releaseDomainWrapper.Data.PercentageComplete).ToString())%">
+                            Loading...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="release-tabs-@releaseDomainWrapper.Data.ReleaseId-@(releaseDomainWrapper.AssociatedProjectId)" class="release-sub-tabs-panel">
+                <div class="accordion-wrapper">
+                    <div id="release-work-summary-@releaseDomainWrapper.Data.ReleaseId-@(releaseDomainWrapper.AssociatedProjectId)" class="release-staff-summary accordion">
+                        <h3>Staff Work Summary</h3>
+                        <div>
+                            @Html.Action("MultipleReleaseSummaryStaffStatistics", "ReleaseWorkLog", new { releaseId = releaseDomainWrapper.Data.ReleaseId })
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="release-notes-@(releaseDomainWrapper.Data.ReleaseId)-@(releaseDomainWrapper.AssociatedProjectId)" class="release-notes accordion">
+                    <h3>Release Notes</h3>
+                    <div>
+                        @if (!String.IsNullOrEmpty(releaseDomainWrapper.Data.ReleaseNotes))
+                        {
+                            @Html.Raw(releaseDomainWrapper.Data.ReleaseNotes)
+                        }
+                        else
+                        { 
+                            @Html.Raw("No release notes")
+                        }
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+}
+@if (Model.Count == 0)
+{ 
+    @Html.Raw("This project has no releases.")
+}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.completion-progressbar').each(function (i, obj) {
+            $('#' + obj.getAttribute('id')).progressbar({ value: parseInt(obj.getAttribute('data-completion-progressbar-percentage-complete'), 10) });
+        });
+
+        $('.completion-progressbar-label').each(function (i, obj) {
+            $('#' + obj.getAttribute('id')).text(obj.getAttribute('data-completion-progressbar-label-percentage-complete'));
+        });
+
+        $('.accordion').each(function (i, obj) {
+            $('#' + obj.getAttribute('id')).accordion({
+                collapsible: true,
+                heightStyle: "content",
+                active: false
+                //activate: function (event) {
+                //    alert(event);
+                //    drawChart();
+                //}
+            });
+        });
+    });
+
+    drawChart();
+
+    function drawChart() {
+        $('.hours-chart').each(function (i, obj) {
+            var data = google.visualization.arrayToDataTable([
+                ['Attribute', 'Value'],
+                ['Hours worked', parseInt(obj.getAttribute('data-hours-chart-hours-worked'), 10)],
+                ['Hours remaining', parseInt(obj.getAttribute('data-hours-chart-hours-remaining'), 10)]
+            ]);
+
+            var options = {
+                pieSliceText: 'value',
+                legend: { position: 'bottom', alignment: 'center' },
+                tooltip: { text: 'value' },
+                is3D: true
+            };
+            new google.visualization.PieChart(document.getElementById(obj.getAttribute('id'))).draw(data, options);
+        });
+    };
+</script>
+

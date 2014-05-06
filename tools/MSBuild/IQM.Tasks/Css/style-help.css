@@ -1,0 +1,112 @@
+﻿/*
+    Css Classes that related to help messages and dialogs
+*/
+.helpmessage
+{
+    display: inline-block;
+}
+.ui-tabs .ui-tabs-nav li .helpmessage-icon
+{
+    padding:0;
+}
+.helpmessage-icon
+{
+    background-position: center center;
+    margin: 0.1em;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    background-color: transparent;
+    background-image: url(../Images/22x22/Help.png);
+    background-repeat: no-repeat;
+    cursor: help;
+}
+.helpmessage-icon a
+{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.helpmessage-text
+{
+    display: none;
+}
+
+.helplegend
+{
+    float: right;
+    margin-top: -1.5em;
+    background-image: url(../Images/22x22/help.png);
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 22px;
+    display: block;
+    cursor: pointer;
+}
+
+#helpDialog
+{
+    overflow: auto;
+}
+
+#helpDialog img, .help-content img, .helpfigure table, .helpfigure img
+{
+    padding: 5px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -web-border-radius: 4px;
+}
+.helpfigure table
+{
+    margin: auto;
+}
+.helpfigure td, .helpfigure td img
+{
+    vertical-align: text-top;
+}
+.helpfigure p
+{
+    margin-top: 0;
+    padding-top: 0;
+}
+.helpfigure
+{
+    text-align: center;
+}
+
+.helpfigure label
+{
+    font-size: small;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    width: 100%;
+}
+.helpfigure label::before
+{
+    content: "Figure: ";
+}
+.helpfigure ul
+{
+    margin: 0 auto;
+    width: inherit;
+    width: 20%;
+}
+.helpfigure li
+{
+    font-style: italic;
+    text-align: left;
+}
+a.helpmessage-icon
+{
+    vertical-align: bottom;
+}
+.helpfigure table td:first-child
+{
+    font-weight: bold;
+    text-align: left;
+}
+.release-notes-list
+{
+    list-style-type: disc;
+}

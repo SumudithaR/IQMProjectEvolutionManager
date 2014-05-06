@@ -1,0 +1,12 @@
+﻿<div class="submit-bar">
+    <div>
+        @Html.ActionLink(
+            (string)(ViewData["Text"] ?? "Cancel"), 
+            (string)(ViewData["Action"] ?? "Index"), 
+            (string)(ViewData["Controller"] ?? "Home"), 
+            (RouteValueDictionary)ViewData["RouteData"], new Dictionary<string, object>{ { "rel", "button" }, { "class","ui-cancel-button" } })
+    </div>
+    <div>
+        <input class="ui-action-button" type="submit" value="@Model" />
+    </div>
+</div>

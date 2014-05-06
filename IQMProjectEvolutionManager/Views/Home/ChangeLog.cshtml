@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Change Log";
+}
+
+<h2>Change Log</h2>
+<div class="changelog">
+
+<pre>
+@if (File.Exists(Server.MapPath("~/Content/CHANGELOG.txt")))
+{
+    @File.ReadAllText(Server.MapPath("~/Content/CHANGELOG.txt"))
+}
+else
+{
+    @:Could not find change log
+}
+</pre>
+</div>

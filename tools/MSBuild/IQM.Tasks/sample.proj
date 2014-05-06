@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets="All" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="IQM.Tasks.targets" />
+  <Target Name="Version">
+    <VersionFromFile InputFile="version.txt" OutputFile="output.txt"/>
+  </Target>
+
+  <Target Name="Compress">
+    <ItemGroup>
+      <JavaScriptFiles Include="Scripts\*.js" />
+      <JavaScriptFiles Include="Scripts\prosecutions\*.js" />
+      <JavaScriptFiles Include="Scripts\system\*.js" />
+    </ItemGroup>
+    <JSCompressRename Files="@(JavaScriptFiles)" />
+  </Target>
+
+  <Target Name="Compile">
+    <ItemGroup>
+      <CssExcludeFiles Include="Scripts\min\*.js" />
+      <JavaScriptExcludeFiles Include="Scripts\mobile\min\*.js" />
+      <JavaScriptExcludeFiles Include="Scripts\prosecutions\min\*.js" />
+      <JavaScriptExcludeFiles Include="Scripts\system\min\*.js" />
+    </ItemGroup>
+    <ItemGroup>
+      <JavaScriptFiles Include="Scripts\*.js" />
+      <JavaScriptFiles Include="Scripts\min\*.js" />
+      <JavaScriptFiles Include="Scripts\prosecutions\*.js" />
+      <JavaScriptFiles Include="Scripts\system\*.js" />
+    </ItemGroup>
+    <JsCompile Files="@(JavaScriptFiles)" ExcludeFiles="@(JavaScriptExcludeFiles)" OutputFile="compiled.js" OutputMinFile="compiled.min.js"/>
+  </Target>
+
+  <Target Name="CompileCss">
+    <ItemGroup>
+      <CssExcludeFiles Include="Css\style.css" />
+      <CssExcludeFiles Include="Css\print.css" />
+    </ItemGroup>
+    <ItemGroup>
+      <CssFiles Include="css\*.css" />
+    </ItemGroup>
+    <CssCompile Files="@(CssFiles)" ExcludeFiles="@(CssExcludeFiles)" OutputFile="compiled.css" OutputMinFile="compiled.min.css"/>
+  </Target>
+
+  <Target Name="All">
+    <CallTarget Targets="Version"/>
+    <CallTarget Targets="Compress"/>
+    <CallTarget Targets="Compile"/>
+    <CallTarget Targets="CompileCss"/>
+  </Target>
+
+  
+</Project>

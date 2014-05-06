@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+  
+  <loadtasks>
+    <fileset>
+      <include name="libs/NAnt/NAnt.ToDo.dll" />
+      <include name="libs/NAnt/NAnt.Tasks.Minify.dll" />
+      <!--<include name="libs/NAnt/NAnt.Tasks.Ftp.dll" />-->
+      <include name="libs/NAnt/ftptask.dll" />
+      <!--<include name="libs/sandcastle_task.dll" />-->
+    </fileset>
+  </loadtasks>
+
+  <!-- Global Build Properties -->
+  <property name="build-program" value="xbuild" overwrite="true" />
+  <if test="${platform::is-windows()}">
+    <property name="build-program" value="c:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" overwrite="true" />
+  </if>
+
+  <property name="projects" value="IQMProjectEvolutionManager" overwrite="false"/>
+  <property name="configuration" value="Debug" overwrite="false"/>
+
+  <property name="solution" value="IQMProjectEvolutionManager.sln"/>
+  
+  <!-- inkscape -->
+  <property name="inkscape" value="c:\Program Files (x86)\Inkscape\inkscape.exe" overwrite="true"/>
+  
+  <property name="nunit-console" value="tools\NUnit\bin\net-2.0\nunit-console.exe" overwrite="false"/>
+
+
+  <loadfile file="version.txt" property="base-version"/>
+  <property name="build-number" value="0"/>
+
+  <target name="build">
+
+    <!-- NAnt cannot currently build VS2010 projects so we are going to call msbuild manually -->
+    <!--<solution configuration="${configuration}" solutionfile="${solution}" />-->
+    <!-- Execute the Build -->
+    <exec program="${build-program}" append="true" failonerror="true" workingdir=".">
+      <!--<arg line="/t:rebuild" />-->
+      <arg line="/m"/>
+      <arg line="/p:Configuration=${configuration}"/>
+      <arg line="/p:VersionNumber=${base-version}.${build-number}"/>
+      <arg file="${solution}"/>
+    </exec>
+
+  </target>
+
+  <target name="package">
+    <!-- NAnt cannot currently build VS2010 projects so we are going to call msbuild manually -->
+    <!--<solution configuration="${configuration}" solutionfile="${solution}" />-->
+    <!-- Execute the Build -->
+    <foreach item="String" in="${projects}" delim=" ," property="project-name">
+      <exec program="${build-program}" append="true" failonerror="true" workingdir="${project-name}">
+      <arg line="/m"/>
+        <arg line="/p:Configuration=${configuration}"/>
+        <arg line="/p:VersionNumber=${base-version}.${build-number}"/>
+        <arg line="/T:Package"/>
+        <arg line="${project-name}.csproj"/>
+      </exec>
+    </foreach>
+  </target>
+
+  <target name="publish">
+    <!-- execute the deployment package -->
+    <foreach item="String" in="${projects}" delim="," property="project-name">
+      <exec program="${project-name}\obj\${configuration}\Package\${project-name}.deploy.cmd" append="true" failonerror="true" workingdir=".">
+        <arg line="/Y"/>
+        <arg line="/M:vpn.iqm.org.uk"/>
+        <arg line="/U:Administrator"/>
+        <arg line="/P:!qm4dm!n"/>
+      </exec>
+    </foreach>
+  </target>
+
+  <target name="clean">
+    <exec program="${build-program}" append="true" failonerror="true" workingdir=".">
+      <arg line="/m"/>
+      <arg line="/t:clean" />
+      <arg line="/p:Configuration=${configuration}"/>
+      <arg file="${solution}"/>
+    </exec>
+    <delete>
+      <fileset defaultexcludes="false">
+        <include name="IQMProjectEvolutionManager**\obj\**" />
+      </fileset>
+    </delete>
+  </target>
+
+  <target name="buildimages">
+    <foreach item="File" in="IQMProjectEvolutionManager/Content/Images/Scalable" property="filename">
+      <exec program="${inkscape}">
+        <arg line="-e ${string::replace(filename,'.svg','.png')}"/>
+        <arg line="-w 32"/>
+        <arg line="-h 32"/>
+        <arg file="${filename}"/>
+      </exec>
+      <move file="${string::replace(filename,'.svg','.png')}" todir="IQMProjectEvolutionManager/Content/Images/32x32"  />
+
+      <exec program="${inkscape}">
+        <arg line="-e ${string::replace(filename,'.svg','.png')}"/>
+        <arg line="-w 22"/>
+        <arg line="-h 22"/>
+        <arg file="${filename}"/>
+      </exec>
+      <move file="${string::replace(filename,'.svg','.png')}" todir="IQMProjectEvolutionManager/Content/Images/22x22"  />
+      
+    </foreach>
+    
+  </target>
+  
+  <target name="ftp">
+    <connection id="web1" server="ftp.iqmsa.co.uk"
+     username="ftp.iqmsa.co.uk|administrator" password="W4bFarmF9sdMdj"/>
+  
+      <ftp connection="web1"
+         showdironconnect="true"
+         createdirs="true"
+         verbose="true"
+         exec="true"
+         logfiles="true">
+
+      <put type="bin"
+            localdir="IQMProjectEvolutionManager\obj\${configuration}\Package"
+           remotedir="/apps/packages"
+           flatten="false">
+        <includes name=".\*.zip" />
+      </put>
+    </ftp>
+
+  </target>
+  
+  <target name="test">
+	<!-- run nunit -->
+	<exec program="${nunit-console}"
+	workingdir="IQMProjectEvolutionManager.Tests/bin/${configuration}"
+	commandline="IQMProjectEvolutionManager.Tests.dll /xml:../../../test-results.xml /nologo"/>
+  </target>
+
+  
+</project>

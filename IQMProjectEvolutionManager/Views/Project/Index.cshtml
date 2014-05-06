@@ -1,0 +1,57 @@
+﻿@model IList<IQMProjectEvolutionManager.Core.DomainWrappers.ProjectDomainWrapper>
+
+@{
+    ViewBag.Title = "Project Release Summary";
+}
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+    google.load("visualization", "1", { packages: ["corechart"] });
+    $(document).ready(function () {
+        $("#tabs").tabs().addClass("ui-tabs-vertical ui-helper-clearfix");
+        $("#tabs > li").removeClass("ui-corner-top").addClass("ui-corner-left");
+    });
+</script>
+
+<div id="multiple-project-content-div">
+    <h1>Project Evolution Dashboard</h1>
+    <div id="tabs" class="release-tabs">
+        <fieldset id="projects-fieldset" class="projects-fieldset">
+            <legend id="projects-legend" class="main-legends">Projects</legend>
+            <ul style="padding-right: 0.3em; margin-top:1em;">
+                @foreach (var projectDomainWrapper in Model)
+                {
+                    var overDueStyle = "";
+                    if (projectDomainWrapper.NextActiveRelease.DueDate.CompareTo(DateTime.Today) > 0)
+                    {
+                        overDueStyle = "color: green;";
+                    }
+                    else
+                    {
+                        overDueStyle = "color: red;";
+                    }
+                    
+                    <li style="vertical-align: middle;">
+                        <a href="#release_@projectDomainWrapper.Data.ProjectId" style="@overDueStyle">@projectDomainWrapper.Data.Name (@((projectDomainWrapper.NextActiveRelease.DueDate - DateTime.Today).TotalDays))</a>
+                        <span class="tab-sub-item">@projectDomainWrapper.NextActiveRelease.DueDate.ToShortDateString()</span>
+                    </li>
+                }
+                @if (Model.Count == 0)
+                { 
+                    @Html.Raw("No projects exist on the system.")
+                }
+            </ul>
+        </fieldset>
+        <fieldset id="releases-fieldset" class="releases-fieldset">
+            <legend id="releases-legend" class="main-legends">Releases</legend>
+            @foreach (var projectViewModel in Model)
+            {
+                <div id="release_@projectViewModel.Data.ProjectId" class="releases-panel">
+                    @Html.Action("ReleaseSummary", "ReleaseProject", new { projectId = projectViewModel.Data.ProjectId })
+                </div>
+            }
+        </fieldset>
+
+    </div>
+</div>

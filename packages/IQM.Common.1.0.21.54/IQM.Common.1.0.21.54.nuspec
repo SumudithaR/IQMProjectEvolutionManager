@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>IQM.Common</id>
+    <version>1.0.21.54</version>
+    <title>IQM.Common</title>
+    <authors>IQM Software</authors>
+    <owners>IQM Software</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>IQM Commons Package</description>
+    <dependencies>
+      <dependency id="FluentNHibernate-hazzik" version="1.4.1.0" />
+      <dependency id="log4net" version="2.0.0" />
+      <dependency id="Ninject" version="3.0.1.10" />
+      <dependency id="PagedList" version="1.15.0.0" />
+    </dependencies>
+    <references>
+      <reference file="IQM.Common.dll" />
+    </references>
+  </metadata>
+</package>

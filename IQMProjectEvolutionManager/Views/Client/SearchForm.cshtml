@@ -1,0 +1,29 @@
+﻿@model ClientPagedSearchViewModel
+
+<div rel="widget">
+    <h3>Search Client</h3>
+    <div rel="content">
+        @using (Html.BeginForm("SearchResults", "Client", FormMethod.Get))
+        {
+            <div class="editor-row">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.CompanyName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.CompanyName)
+                </div>
+            </div>
+
+            <div class="editor-row">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.SapNumber)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.SapNumber)
+                </div>
+            </div>
+
+            @Html.Partial("SubmitBar", "Search")
+        }
+    </div>
+</div>

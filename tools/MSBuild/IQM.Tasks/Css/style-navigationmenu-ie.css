@@ -1,0 +1,32 @@
+﻿.NavigationMenu ul li
+{
+    display: inline;
+    /* HACK for css selcetor last-child */
+    float: expression(this.nextSibling==null?'right':'left');
+}
+.NavigationMenu ul li
+{
+    float: left;
+}
+.NavigationMenu ul li *
+{
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+.NavigationMenu ul li ul
+{
+    position: absolute;
+    width: 175px;
+}
+
+.NavigationMenu ul li ul li
+{
+    text-align: left;
+    width: 100%;
+}
+
+.NavigationMenu ul li ul li a
+{
+    width: 100%;
+}

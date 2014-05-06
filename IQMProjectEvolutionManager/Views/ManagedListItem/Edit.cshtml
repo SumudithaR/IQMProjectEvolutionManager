@@ -1,0 +1,68 @@
+﻿@model DropDownItemViewModel
+
+@{
+    ViewBag.Title = "Edit Drop Down";
+}
+<div id="tabs" rel="tab-widget">
+    <ul>
+        <li><a href="#existing">Edit Existing @(Model.ManagedListItemType)s</a></li>
+        <li><a href="#create">Create New @(Model.ManagedListItemType)</a></li>
+    </ul>
+
+    <div id="existing">
+        @Html.Partial("EditTable", Model.Data)
+    </div>
+    <div id="create">
+        @using (Html.BeginForm("Create", "ManagedListItem", new { id = Model.ManagedListItemType }))
+        {
+            <table style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>@Html.Label("Name")</th>
+                        @if (User.IsInRole(RoleProfiles.SystemAdmin))
+                        {
+                            <th>@Html.Label("Short Name")</th>
+                            <th>@Html.Label("META Data")</th>
+                        }
+                        <th>@Html.Label("Visible")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Html.TextBox("Name")</td>
+                        @if (User.IsInRole(RoleProfiles.SystemAdmin))
+                        {
+                            <td>@Html.TextBox("ShortName")</td>
+                            <td>@Html.TextBox("MetaData")</td>
+                        }
+                        <td>@Html.CheckBox("Visible")</td>
+                    </tr>            
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            @Html.Partial("SubmitBar", "Create")
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        Global.SetupWidgets();
+
+        // Initialise the second table specifying a dragClass and an onDrop function that will display an alert
+        $("#dropDownItems").tableDnD({
+            onDrop: function (table, row) {
+                var rows = table.tBodies[0].rows;
+                for (var i = 0; i < rows.length; i++) {
+                    $(rows[i]).find("input[name$=Order]").val(i);
+                }
+            }
+        });
+    });
+</script>
+

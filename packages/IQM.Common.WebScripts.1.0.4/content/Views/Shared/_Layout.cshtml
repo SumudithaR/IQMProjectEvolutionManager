@@ -1,0 +1,139 @@
+﻿@using System.Web.Optimization
+@using AssetManagement.Models
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>@ViewBag.Title</title>
+        <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" /> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        @Scripts.Render("~/bundles/Libs/JQueryCore")
+        @Scripts.Render("~/bundles/Libs/JQueryExt")
+        @Scripts.Render("~/bundles/Libs/JQueryUI")
+        @Scripts.Render("~/bundles/Libs/Modernizer")
+        @Scripts.Render("~/bundles/Libs/MvcAjax")
+
+
+        @Scripts.Render("~/bundles/Core")
+        @Scripts.Render("~/bundles/Core/Domain")
+        @Scripts.Render("~/bundles/Core/System")
+        
+        @Styles.Render("~/Content/System")
+        @Styles.Render("~/Content/Libs")
+        @Styles.Render("~/Content/Domain")
+                        
+        @Styles.Render("~/Content/themes/base/css")
+        @Styles.Render("~/Content/themes/custom-theme/css")
+
+        <style>
+            .ui-dialog .ui-dialog-content 
+            {
+                overflow: hidden;
+            }
+        </style>
+        <script type="text/javascript">
+
+            /*var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-26083570-1']);
+            _gaq.push(['_setDomainName', 'iqmsa.co.uk']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();*/
+            
+            /*window.onerror = function (msg, url, linenumber) {
+                // make a call to JavascriptError to log the error
+                try {
+                    $.ajax({
+                        url: Global.GetInstallFolder() + '/home/JavascriptError',
+                        dataType: 'html',
+                        data: {
+                            message: msg,
+                            url: url,
+                            line: linenumber,
+                            referer: window.location.href
+                        },
+                        type: 'POST'
+                    });
+                } catch (e) {
+                    // do nothing
+                }
+                return true;
+            };*/
+        </script>
+    </head>
+    <body>
+        <div class="page">
+            <header class="ui-widget-header ui-corner-all">
+                <div id="menucontainer">
+                    @Html.Partial("NavigationMenu")
+                </div>
+            </header>
+            <div id="main" class="container" style="float: left;">
+                @if (TempData["ConfigurationStatus"] != null)
+                {
+                    var statusMessage = TempData["ConfigurationStatus"] as StatusMessage;
+                    if (statusMessage != null)
+                    { 
+                        @Html.Partial("StatusMessage", statusMessage)
+                    }
+                }
+                @if (TempData["Status"] != null)
+                {
+                    var statusMessage = TempData["Status"] as StatusMessage;
+                    if (statusMessage != null)
+                    { 
+                        @Html.Partial("StatusMessage", statusMessage)
+                    }
+                }
+                @RenderBody()
+            </div>
+            <footer style="clear:both;" class="container">
+                <div>
+                    <p>
+                        <span style="float: right;">
+                            Version: @Html.ActionLink(Modules.Version, "ChangeLog", "Home")
+                        </span>
+                        IQM Software &copy; @DateTime.Now.Year
+                    </p>
+                </div>
+            </footer>
+        </div>
+
+        <div id="helpDialogLoading" style="display: none;" class="ui-widget" title="Loading Help">
+            <img src="~/Content/Images/Core/System/ajax-loader-large.gif" alt="Loading Help.." style="float: left; padding: 10px;" />
+            <h3>
+                Loading Help</h3>
+            <p>
+                Please wait whilst the relevant help messages are loaded.</p>
+        </div>
+
+        <div id="dialogLoadingMessage" style="display: none;" class="ui-widget" title="Loading Help">
+            <img src="~/Content/Images/Core/System/ajax-loader.gif" alt="Loading.." style="float: left; padding: 10px;" />
+            <h3 id="dialogLoadingTitle">
+            </h3>
+            <p id="dialogLoadingBody">
+            </p>
+        </div>
+    
+        <!-- Dialogs -->
+        @Html.Partial("PartialViewDialog")
+        @Html.Partial("ResultsDialog")
+    
+        <!-- preload some stuff -->
+        <div class="ajaxloading" style="display: none;"></div>
+
+        @RenderSection("scripts", required: false)
+        <script type="text/javascript">
+            $(document).ready(function () {
+                Global.SetInstallFolder("@System.Configuration.ConfigurationManager.AppSettings["InstallFolder"]");
+                Global.SetupDates();
+                Global.SetupWidgets();
+            });
+        </script>
+    </body>
+</html>
+

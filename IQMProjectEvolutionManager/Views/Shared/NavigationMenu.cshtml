@@ -1,0 +1,63 @@
+﻿<div id="NavigationMenu" class="NavigationMenu ui-widget-header ui-corner-all">
+    <ul id="NavMenu">
+        <li id="icon-logo">
+            <a href="@Url.Content("~/")">
+                <img src="@Url.Content("~/Content/images/product-web-icon.png")" alt="" style="height: 2em;"/>
+            </a>
+        </li>
+        @{
+            if (User.Identity.IsAuthenticated)
+            {
+            <li class="user-settings-nav-item">
+                <a href="@Url.Action("UserSettings", "Account")" class="user-settings-nav-item-link" style="text-decoration: none;">User Settings</a>
+            </li>
+            <li class="user-settings-nav-item">
+                <a href="@Url.Action("LogOff", "Account")" class="user-settings-nav-item-link" style="text-decoration: none;">Sign out</a>
+            </li>
+            }
+        }
+        <li>
+            <a id="actionmenuitem" href="http://www.iqmsoftware.co.uk/">
+                <img src="/Content/Images/iqm-logo.png" alt="IQM Software" style="height: 2em;" />
+            </a>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#NavMenu > li > ul").find("a").click(function () {
+            if ($(this).attr("href") == "javascript:void(0)") {
+                $(this).parent().find(" > ul").css("top", ($(this).position().top + ($(this).height() - 2))).css("left", $(this).position().left).show();
+            } else {
+                window.location = $(this).attr("href");
+            }
+        });
+
+        $("#NavMenu > li").click(function () {
+            $("#NavMenu > li > ul").hide();
+            $(this).find(" > ul").css("top", ($(this).position().top + ($(this).height() - 2))).css("left", $(this).position().left).show();
+            clearTimeout($(this).find(" > ul").data("timer"));
+        });
+
+        $("#NavMenu > li").mouseover(function () {
+            $("#NavMenu > li > ul").hide();
+            $(this).find(" > ul").css("top", ($(this).position().top + ($(this).height() - 2))).css("left", $(this).position().left).show();
+            clearTimeout($(this).find(" > ul").data("timer"));
+        });
+
+        $("#NavMenu > li").mouseleave(function () {
+            var element = $(this).find(" > ul");
+            var timer = setTimeout(function () {
+                element.hide();
+            }, 1000);
+
+            element.data("timer", timer);
+        });
+
+        $("#NavMenu").find("a").each(function () {
+            if ($(this).attr("href") == "#") {
+                $(this).attr("href", "javascript:void(0)");
+            }
+        });
+    });
+</script>

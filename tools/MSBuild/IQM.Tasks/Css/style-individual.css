@@ -1,0 +1,34 @@
+﻿#appearancefeatures
+{
+    display:block;
+    padding:0;
+}
+.FeaturesRow 
+{
+    width: 100%;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+.FeaturesRow div
+{
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: text-top;
+}
+.FeaturesHeader div
+{
+    font-weight: bold;
+}
+.Feature-Type
+{
+    width: 12em;
+}
+.Feature-Description 
+{
+    width: 30em;
+}
+.Feature-Actions
+{
+    width: 5em;
+}

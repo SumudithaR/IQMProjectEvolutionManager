@@ -1,0 +1,36 @@
+﻿.NavigationMenu {
+    background-color: White;
+    padding: 0.3em;
+}
+
+    .NavigationMenu ul {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        z-index: 3000;
+    }
+
+        .NavigationMenu ul li {
+            display: inline-block;
+            padding-left: 0.3em;
+            padding-right: 0.3em;
+        }
+
+            .NavigationMenu ul li * {
+                vertical-align: middle;
+                text-align: left;
+            }
+
+            .NavigationMenu ul li span {
+                float: right;
+            }
+
+            .NavigationMenu ul li ul {
+                display: none;
+                position: absolute;
+                width: 175px;
+            }
+
+            .NavigationMenu ul li:last-child {
+                float: right;
+            }

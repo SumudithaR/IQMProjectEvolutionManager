@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IQMTaskLib>bin\Debug\IQM.Tasks.dll</IQMTaskLib>
+  </PropertyGroup>
+
+  <UsingTask AssemblyFile="$(IQMTaskLib)" TaskName="IQM.Tasks.VersionFromFile" />
+  <UsingTask AssemblyFile="$(IQMTaskLib)" TaskName="IQM.Tasks.JSCompressRename" />
+  <UsingTask AssemblyFile="$(IQMTaskLib)" TaskName="IQM.Tasks.JsCompile" />
+  <UsingTask AssemblyFile="$(IQMTaskLib)" TaskName="IQM.Tasks.CssCompile" />
+
+</Project>

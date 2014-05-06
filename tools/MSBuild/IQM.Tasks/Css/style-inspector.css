@@ -1,0 +1,38 @@
+﻿#InspectorOverview label
+{
+    display: inline-block;
+}
+
+.inspector-edit-table .label-cell,
+.inspector-edit-table .buttons
+{
+    text-align: right;
+}
+
+.inspector-edit-table td
+{
+    text-align: left;
+    vertical-align: top;
+    /*font-size: .8em;*/
+}
+
+.inspector-edit-table td .multi-line
+{
+    width: 30em;
+}
+
+.uniform-fieldset
+{
+    width: 100%;
+}
+
+.inspector-edit-table .ui-button-text
+{
+    padding: 0.1em 1em;
+}
+
+/*Inspector Tabs Layout*/
+#inspector-tabs ul li a
+{
+    font-size: .8em;
+}

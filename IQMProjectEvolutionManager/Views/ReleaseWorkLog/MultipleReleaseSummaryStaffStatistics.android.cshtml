@@ -1,0 +1,45 @@
+﻿@model IList<IQMProjectEvolutionManager.Core.DomainWrappers.ReleaseWorkLogDomainWrapper>
+<div id="staff-statistics-table-@ViewData["releaseId"]-@ViewData["projectId"]" class="staff-statistics-table" border="1"></div>
+@*<table class="staff-statistics-table" border="1">
+    <tr>
+        <th>Staff member</th>
+        <th>Hours Completed On Release</th>
+        <th>Work Completed Last 7 Days<br />
+            (Work Logs)</th>
+        <th>Hours remaining</th>
+    </tr>
+    @foreach (var workLog in Model)
+    {
+        <tr>
+            <td>@workLog.Data.Staff.FirstName @workLog.Data.Staff.LastName</td>
+            <td>@Math.Round(workLog.Data.HoursWorkedOnRelease)</td>
+            <td>@Math.Round(workLog.Data.HoursWorkedOnReleaseInLastWeek)</td>
+            <td>@Math.Round(workLog.Data.HoursRemainingOnRelease)</td>
+        </tr>
+    }
+</table>*@
+
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script type='text/javascript'>
+    google.load('visualization', '1', { packages: ['table'] });
+    google.setOnLoadCallback(drawTable);
+    function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Staff member');
+        data.addColumn('number', 'Hours Completed On Release');
+        data.addColumn('number', 'Work Completed Last 7 Days (Work Logs)');
+        data.addColumn('number', 'Hours remaining');
+        data.addRows([
+            @foreach (var workLog in Model)
+            {
+                @:["@workLog.Data.Staff.FirstName @workLog.Data.Staff.LastName",@Math.Round(workLog.Data.HoursWorkedOnRelease), @Math.Round(workLog.Data.HoursWorkedOnReleaseInLastWeek), @Math.Round(workLog.Data.HoursRemainingOnRelease)]
+                if (Model.LastOrDefault().Data.ReleaseWorkLogId != workLog.Data.ReleaseWorkLogId) { 
+                    @: ,
+                }
+            }
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('staff-statistics-table-@ViewData["releaseId"]-@ViewData["projectId"]'));
+        table.draw(data, { showRowNumber: false });
+    }
+</script>
