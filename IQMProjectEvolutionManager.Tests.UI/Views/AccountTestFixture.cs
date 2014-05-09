@@ -187,19 +187,21 @@ namespace IQMProjectEvolutionManager.Tests.UI.Views
         [TestCase]
         public void CanRegisterWithValidDetails()
         {
-            var userDetails = new Dictionary<string, string>();
-            userDetails.Add("Username", "Summy");
-            userDetails.Add("Password", "S987560");
-            userDetails.Add("ConfirmPassword", "S987560");
-            userDetails.Add("Mobile", "07733156534");
-            userDetails.Add("Email", "sumuditha.ranawaka@gmail.com");
-            userDetails.Add("SecurityQuestion", "What is your birthplace?");
-            userDetails.Add("SecurityAnswer", "Colombo");
-            userDetails.Add("MobileSubscriber", "true");
-            userDetails.Add("MobileNotificationPeriod", "5");
-            userDetails.Add("InstantMessagingSubscriber", "true");
-            userDetails.Add("InstantMessagingNotificationPeriod", "5");
-            userDetails.Add("CalendarSubscriber", "true");
+            var userDetails = new Dictionary<string, string>
+                                  {
+                                      { "Username", "Summy" },
+                                      { "Password", "S987560" },
+                                      { "ConfirmPassword", "S987560" },
+                                      { "Mobile", "07733156534" },
+                                      { "Email", "sumuditha.ranawaka@gmail.com" },
+                                      { "SecurityQuestion", "What is your birthplace?" },
+                                      { "SecurityAnswer", "Colombo" },
+                                      { "MobileSubscriber", "true" },
+                                      { "MobileNotificationPeriod", "5" },
+                                      { "InstantMessagingSubscriber", "true" },
+                                      { "InstantMessagingNotificationPeriod", "5" },
+                                      { "CalendarSubscriber", "true" }
+                                  };
 
             Register(userDetails);
 
@@ -214,19 +216,21 @@ namespace IQMProjectEvolutionManager.Tests.UI.Views
         [TestCase]
         public void CanLoginWithValidDetails()
         {
-            var userDetails = new Dictionary<string, string>();
-            userDetails.Add("Username", "Pack");
-            userDetails.Add("Password", "Q763THY");
-            userDetails.Add("ConfirmPassword", "Q763THY");
-            userDetails.Add("Mobile", "07965941236");
-            userDetails.Add("Email", "pack.m@gmail.com");
-            userDetails.Add("SecurityQuestion", "What is the colour of your car?");
-            userDetails.Add("SecurityAnswer", "Red");
-            userDetails.Add("MobileSubscriber", "true");
-            userDetails.Add("MobileNotificationPeriod", "10");
-            userDetails.Add("InstantMessagingSubscriber", "true");
-            userDetails.Add("InstantMessagingNotificationPeriod", "10");
-            userDetails.Add("CalendarSubscriber", "true");
+            var userDetails = new Dictionary<string, string>
+                                  {
+                                      { "Username", "Pack" },
+                                      { "Password", "Q763THY" },
+                                      { "ConfirmPassword", "Q763THY" },
+                                      { "Mobile", "07965941236" },
+                                      { "Email", "pack.m@gmail.com" },
+                                      { "SecurityQuestion", "What is the colour of your car?" },
+                                      { "SecurityAnswer", "Red" },
+                                      { "MobileSubscriber", "true" },
+                                      { "MobileNotificationPeriod", "10" },
+                                      { "InstantMessagingSubscriber", "true" },
+                                      { "InstantMessagingNotificationPeriod", "10" },
+                                      { "CalendarSubscriber", "true" }
+                                  };
 
             Register(userDetails);
 

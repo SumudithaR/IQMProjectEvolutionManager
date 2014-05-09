@@ -50,6 +50,15 @@ namespace IQMProjectEvolutionManager.Core.Services
             return pagedSearchViewModel;
         }
 
+        /// <summary>
+        /// The is modified.
+        /// </summary>
+        /// <param name="project">
+        /// The project.
+        /// </param>
+        /// <returns>
+        /// The <see cref="bool"/>.
+        /// </returns>
         public bool IsModified(Project project)
         {
             var currentProject = GetAll().SingleOrDefault(proj => proj.OnTimeId == project.OnTimeId);
@@ -58,6 +67,15 @@ namespace IQMProjectEvolutionManager.Core.Services
             return !currentProject.Name.Equals(project.Name) || currentProject.IsActive != project.IsActive;
         }
 
+        /// <summary>
+        /// The update.
+        /// </summary>
+        /// <param name="project">
+        /// The project.
+        /// </param>
+        /// <returns>
+        /// The <see cref="bool"/>.
+        /// </returns>
         public bool Update(Project project)
         {
             if (!InDatabase(project)) return false;

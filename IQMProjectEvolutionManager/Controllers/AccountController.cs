@@ -170,7 +170,7 @@ namespace IQMProjectEvolutionManager.Controllers
 
             try
             {
-                SmtpUtility.SendPasswordResetEmail(currentUser.Email, "Password Reset Token", "<b>Please find the Password Reset Token</b><br/>" + resetLink);
+                SmtpUtility.SendPasswordResetEmail(currentUser.Email, "Password Reset Token", "<b>Please click on the link below to reset you password.</b><br/>" + resetLink);
                 this.ViewData.Add("Message", "A link to reset the password has been sent to the user's email.");
             }
             catch (Exception ex)
@@ -209,7 +209,7 @@ namespace IQMProjectEvolutionManager.Controllers
             {
                 try
                 {
-                    SmtpUtility.SendPasswordResetEmail(currentUser.Email, "New Password", "<b>Please find the New Password</b><br/>" + newPassword);
+                    SmtpUtility.SendPasswordResetEmail(currentUser.Email, "New Password", "<b>Your new password is: </b><br/>" + newPassword);
                 }
                 catch (Exception ex)
                 {
