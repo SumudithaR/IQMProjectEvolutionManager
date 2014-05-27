@@ -48,30 +48,40 @@ namespace IQMProjectEvolutionManager.Core.Services
             return false;
         }
 
-        public void InsertOrUpdate(SubscriberNotifierLog userNotifierLog)
+        public bool InDatabaseByTransactionId(SubscriberNotifierLog userNotifierLog)
         {
             if (userNotifierLog != null)
             {
-                if (InDatabase(userNotifierLog))
-                {
-                    var currentUserNotifierLog = GetAll().SingleOrDefault(uNLog => uNLog.SubscriberNotifierLogId == userNotifierLog.SubscriberNotifierLogId);
+                return GetAll().Any(uNLog => uNLog.TransactionId.Equals(userNotifierLog.TransactionId));
+            }
+            return false;
+        }
 
-                    currentUserNotifierLog.EndDate = userNotifierLog.EndDate;
-                    currentUserNotifierLog.Location = userNotifierLog.Location;
-                    currentUserNotifierLog.Message = userNotifierLog.Message;
-                    currentUserNotifierLog.SentSuccess = userNotifierLog.SentSuccess;
-                    currentUserNotifierLog.StartDate = userNotifierLog.StartDate;
-                    currentUserNotifierLog.Subject = userNotifierLog.Subject;
-                    currentUserNotifierLog.RegisteredForId = userNotifierLog.RegisteredForId;
-                    currentUserNotifierLog.TransactionId = userNotifierLog.TransactionId;
-                    currentUserNotifierLog.Edited = DateTime.Now;
+        public bool IsModified(SubscriberNotifierLog subscriberNotifierLog)
+        {
+            if (InDatabaseByTransactionId(subscriberNotifierLog))
+            {
+                var currentSubscriberNotifierLog = GetAll().SingleOrDefault(uNLog => uNLog.TransactionId.Equals(subscriberNotifierLog.TransactionId));
 
-                    Repository.Save(currentUserNotifierLog);
-                }
-                else
+                if (!currentSubscriberNotifierLog.Message.Trim().Equals(subscriberNotifierLog.Message.Trim()) ||
+                    currentSubscriberNotifierLog.SentSuccess != subscriberNotifierLog.SentSuccess ||
+                    currentSubscriberNotifierLog.EndDate.Value.Date != subscriberNotifierLog.EndDate.Value.Date ||
+                    currentSubscriberNotifierLog.StartDate.Value.Date != subscriberNotifierLog.StartDate.Value.Date ||
+                    !currentSubscriberNotifierLog.Subject.Trim().Equals(subscriberNotifierLog.Subject.Trim()) ||
+                    currentSubscriberNotifierLog.RegisteredForId != subscriberNotifierLog.RegisteredForId)
                 {
-                    Repository.Save(userNotifierLog);
+                    return true;
                 }
+            }
+
+            return false;
+        }
+
+        public void Insert(SubscriberNotifierLog userNotifierLog)
+        {
+            if (userNotifierLog != null)
+            {
+                Repository.Save(userNotifierLog);
             }
         }
 

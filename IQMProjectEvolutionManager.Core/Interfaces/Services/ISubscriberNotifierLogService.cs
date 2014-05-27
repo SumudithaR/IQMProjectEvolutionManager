@@ -12,7 +12,9 @@ namespace IQMProjectEvolutionManager.Core.Interfaces.Services
     public interface ISubscriberNotifierLogService : IDomainBaseService<SubscriberNotifierLog, SubscriberNotifierLogDomainWrapper, SubscriberNotifierLogPagedSearchDomainWrapper>
     {
         bool InDatabase(SubscriberNotifierLog userNotifierLog);
-        void InsertOrUpdate(SubscriberNotifierLog userNotifierLog);
+        bool InDatabaseByTransactionId(SubscriberNotifierLog userNotifierLog);
+        bool IsModified(SubscriberNotifierLog subscriberNotifierLog);
+        void Insert(SubscriberNotifierLog userNotifierLog);
         void Delete(SubscriberNotifierLog userNotifierLog);
         SubscriberNotifierLog GetByRegisteredForId(SubscriberNotifier userNotifier, long registeredForId);
         int LogsCount();
